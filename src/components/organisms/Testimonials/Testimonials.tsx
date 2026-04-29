@@ -37,7 +37,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div key={t.id} className={styles.card}>
               <div className={styles.stars}>★★★★★</div>
-              <p className={styles.text}>"{t.text}"</p>
+              <p className={styles.text}>{t.text}</p>
               <div className={styles.author}>
                 <div className={styles.avatar}>{t.initial}</div>
                 <div>

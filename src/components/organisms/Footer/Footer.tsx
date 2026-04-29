@@ -43,7 +43,7 @@ export default function Footer() {
               Velas artesanales de cera de soya premium. Handpoured en
               Ibagué, Colombia con amor. Bienestar · Natural · Consciente.
             </p>
-            <span className={styles.tagline}>"Enciende tu ritual"</span>
+            <span className={styles.tagline}>Enciende tu ritual</span>
             <div className={styles.socials}>
               {['ig', 'wa', 'fb', 'tk'].map((s) => (
                 <button key={s} className={styles.social}>{s}</button>
