@@ -1,0 +1,122 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.section {
+  background: v.$cream2;
+  border-top: 1px solid v.$border-brown;
+  padding: v.$space-20 40px;
+
+  @include m.md {
+    padding: v.$space-12 20px;
+  }
+}
+
+.inner {
+  @include m.container;
+  padding-inline: 0;
+}
+
+.eyebrow {
+  @include m.eyebrow;
+  text-align: center;
+  display: block;
+  margin-bottom: v.$space-4;
+}
+
+.title {
+  @include m.serif-title(36px);
+  text-align: center;
+  margin-bottom: v.$space-12;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include m.lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: v.$cream;
+  border: 1px solid v.$border-brown;
+  padding: 36px 32px;
+  transition: v.$shadow-md 0.3s ease;
+
+  &:hover {
+    box-shadow: v.$shadow-md;
+  }
+}
+
+.stars {
+  color: v.$gold;
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: v.$space-4;
+}
+
+.text {
+  font-family: v.$font-serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.75;
+  color: v.$brown;
+  margin-bottom: v.$space-6;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: v.$space-3;
+  padding-top: v.$space-4;
+  border-top: 1px solid v.$border-brown;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, v.$gold-pale, v.$gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: v.$font-serif;
+  font-size: 16px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.name {
+  font-family: v.$font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  color: v.$brown;
+  display: block;
+}
+
+.location {
+  font-family: v.$font-sans;
+  font-size: 12px;
+  color: v.$text2;
+  font-weight: 400;
+}
+
+.verified {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: v.$green;
+  background: rgba(61, 107, 79, 0.1);
+  padding: 2px 7px;
+  font-weight: 600;
+  font-family: v.$font-sans;
+}

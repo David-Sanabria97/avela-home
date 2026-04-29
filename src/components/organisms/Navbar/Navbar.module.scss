@@ -1,0 +1,142 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.announce {
+  background: v.$brown;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: v.$gold-pale;
+  font-weight: 500;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(250, 248, 245, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid v.$border-brown;
+}
+
+.inner {
+  @include m.container;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$space-6;
+}
+
+
+
+.links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+
+  @include m.lg {
+    display: none;
+  }
+}
+
+.link {
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: v.$brown2;
+  font-weight: 500;
+  transition: v.$transition;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+
+  &:hover {
+    color: v.$brown;
+    border-color: v.$gold;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: v.$brown2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  position: relative;
+
+  &:hover {
+    color: v.$gold;
+  }
+}
+
+.cartBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background: v.$gold;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.subNav {
+  background: v.$cream2;
+  border-bottom: 1px solid v.$border-brown;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.subLink {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: v.$brown2;
+  padding: 10px 24px;
+  white-space: nowrap;
+  border-right: 1px solid v.$border-brown;
+  transition: v.$transition;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
+  border-bottom: none;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover,
+  &.active {
+    background: v.$brown;
+    color: v.$gold-pale;
+  }
+}

@@ -1,0 +1,125 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.section {
+  padding: v.$space-20 40px;
+  border-top: 1px solid v.$border-brown;
+
+  @include m.md {
+    padding: v.$space-12 20px;
+  }
+}
+
+.inner {
+  @include m.container;
+  padding-inline: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: v.$space-10;
+  }
+}
+
+.eyebrow {
+  @include m.eyebrow;
+  display: block;
+  margin-bottom: v.$space-4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.title {
+  @include m.serif-title(38px);
+  margin-bottom: v.$space-4;
+}
+
+.desc {
+  font-family: v.$font-sans;
+  font-size: 16px;
+  color: v.$text2;
+  font-weight: 600;
+  line-height: 1.75;
+  margin-bottom: v.$space-8;
+}
+
+.perks {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+}
+
+.perk {
+  font-family: v.$font-sans;
+  font-size: 16px;
+  color: v.$text2;
+  display: flex;
+  align-items: center;
+  gap: v.$space-3;
+  font-weight: 500;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: v.$gold;
+    flex-shrink: 0;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+}
+
+.input {
+  border: 1px solid v.$border-brown;
+  background: transparent;
+  padding: 14px 18px;
+  font-family: v.$font-sans;
+  font-size: 16px;
+  color: v.$text;
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+
+  &::placeholder {
+    color: v.$text2;
+    font-weight: 300;
+  }
+
+  &:focus {
+    border-color: v.$gold;
+  }
+}
+
+.btn {
+  background: v.$brown;
+  color: v.$cream;
+  padding: 15px;
+  font-family: v.$font-sans;
+  font-size: 14px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: v.$transition;
+  width: 100%;
+
+  &:hover {
+    background: v.$gold;
+  }
+}
+
+.note {
+  font-size: 11px;
+  color: v.$text2;
+  font-weight: 400;
+  line-height: 1.6;
+}
