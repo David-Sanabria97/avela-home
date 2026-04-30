@@ -35,7 +35,7 @@ export default function Footer() {
             </p>
             <span className={styles.tagline}>Enciende tu ritual</span>
             <div className={styles.socials}>
-              {['ig', 'wa', 'fb', 'tk'].map((s) => (
+              {['ig', 'wa', 'tk'].map((s) => (
                 <button key={s} className={styles.social}>{s}</button>
               ))}
             </div>
