@@ -1,5 +1,8 @@
 import Image from 'next/image'
+import kit3Velas from "@/img/kit-3-velas .png"
+import velaVidrio from "@/img/vidrio.jpeg"
 import styles from './CategoryStrip.module.scss'
+
 
 const CATEGORIES = [
   {
@@ -13,14 +16,14 @@ const CATEGORIES = [
     id: 2,
     label: 'Colección',
     name: 'Kits de Regalo',
-    image: 'https://images.unsplash.com/photo-1607006483224-56a1c5b5a4dd?w=700&q=80',
+    image: kit3Velas,
     alt: 'Kits de regalo Avela',
   },
   {
     id: 3,
     label: 'Colección',
     name: 'Velas de Masaje',
-    image: 'https://images.unsplash.com/photo-1519587577062-b67fe6c7f8c0?w=700&q=80',
+    image: velaVidrio,
     alt: 'Velas de masaje Avela',
   },
 ]

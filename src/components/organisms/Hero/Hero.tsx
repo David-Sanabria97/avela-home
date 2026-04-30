@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './Hero.module.scss'
+import Bambu from "@/img/bambu.jpeg"
 
 export default function Hero() {
   return (
@@ -33,10 +34,7 @@ export default function Hero() {
             <span className={styles.trustDot} />
             Cera de soya 100% natural
           </span>
-          <span className={styles.trustItem}>
-            <span className={styles.trustDot} />
-            Handpoured en Ibagué
-          </span>
+         
           <span className={styles.trustItem}>
             <span className={styles.trustDot} />
             Bolsa regalo incluida
@@ -47,7 +45,7 @@ export default function Hero() {
       <div className={styles.right}>
         <div className={styles.imageWrap}>
           <Image
-            src="https://images.unsplash.com/photo-1602928309543-c9eb7b148f69?w=900&q=80"
+            src={Bambu}
             alt="Vela Avela encendida"
             fill
             priority
@@ -56,7 +54,6 @@ export default function Hero() {
           <div className={styles.badge}>
             <div className={styles.badgeLabel}>Desde</div>
             <div className={styles.badgeValue}>$35.000 COP</div>
-            <div className={styles.badgeSub}>Envío gratis en tu primer pedido</div>
           </div>
         </div>
       </div>

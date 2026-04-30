@@ -2,6 +2,11 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import corcho from "@/img/corcho.jpeg"
+import vidrio from "@/img/vidrio.jpeg"
+import bambu from "@/img/bambu.jpeg"
+
+
 import styles from './ProductGrid.module.scss'
 
 const PRODUCTS = [
@@ -9,38 +14,30 @@ const PRODUCTS = [
     id: 1,
     name: 'Brisa de Lavanda',
     notes: 'Lavanda · Eucalipto · Romero',
-    price: 45000,
+    price: 20000,
     originalPrice: null,
-    image: 'https://images.unsplash.com/photo-1602928309543-c9eb7b148f69?w=500&q=80',
+    image: corcho,
     alt: 'Brisa de Lavanda',
   },
   {
     id: 2,
-    name: 'Ámbar Dorado',
-    notes: 'Ámbar · Vainilla · Sándalo',
-    price: 48000,
-    originalPrice: 55000,
-    image: 'https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?w=500&q=80',
-    alt: 'Ámbar Dorado',
+    name: 'Talco',
+    notes: 'Talco',
+    price: 23000,
+    originalPrice: null,
+    image: vidrio,
+    alt: 'Talco',
   },
   {
     id: 3,
-    name: 'Bosque Sereno',
-    notes: 'Pino · Cedro · Musgo',
+    name: 'Bambú',
+    notes: 'Bambú',
     price: 45000,
     originalPrice: null,
-    image: 'https://images.unsplash.com/photo-1608181831688-8c9f9f85e01e?w=500&q=80',
-    alt: 'Bosque Sereno',
+    image: bambu,
+    alt: 'Bambú',
   },
-  {
-    id: 4,
-    name: 'Cítrico Vital',
-    notes: 'Naranja · Toronja · Lima',
-    price: 45000,
-    originalPrice: null,
-    image: 'https://images.unsplash.com/photo-1519587577062-b67fe6c7f8c0?w=500&q=80',
-    alt: 'Cítrico Vital',
-  },
+  
 ]
 
 function formatPrice(amount: number) {

@@ -40,7 +40,7 @@ export default function Footer() {
               avela home
             </div>
             <p className={styles.desc}>
-              Velas artesanales de cera de soya premium. Handpoured en
+              Velas artesanales de cera de soya premium.
               Ibagué, Colombia con amor. Bienestar · Natural · Consciente.
             </p>
             <span className={styles.tagline}>Enciende tu ritual</span>
@@ -51,7 +51,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Ayuda */}
           <div>
             <div className={styles.colTitle}>Ayuda</div>
             <ul className={styles.colList}>
