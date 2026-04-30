@@ -38,7 +38,7 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
       <nav className={styles.nav}>
         <div className={styles.inner}>
           <Link href="/" >
-            <Image src={Logo} alt="Logo Avela" width={60} height={60} />
+            <Image src={Logo} alt="Logo Avela" width={140} height={120} />
           </Link>
 
           <ul className={styles.links}>

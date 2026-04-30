@@ -1,0 +1,63 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.wrap {
+  border-bottom: 1px solid v.$border-brown;
+  background: v.$cream2;
+  padding: 0 40px;
+
+  @include m.md {
+    padding: 0 20px;
+  }
+}
+
+.inner {
+  @include m.container;
+  padding-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: v.$space-4;
+  overflow-x: auto;
+  scrollbar-width: none;
+  height: 56px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.btn {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: v.$brown2;
+  font-weight: 500;
+  padding: 6px 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: v.$transition;
+  white-space: nowrap;
+
+  &:hover {
+    color: v.$brown;
+    border-color: v.$border-gold;
+  }
+
+  &.active {
+    background: v.$brown;
+    color: v.$gold-pale;
+    border-color: v.$brown;
+  }
+}
+
+.count {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  color: v.$text2;
+  font-weight: 400;
+  margin-left: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
