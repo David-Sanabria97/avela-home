@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Navbar from '@/components/organisms/Navbar/Navbar'
 import Footer from '@/components/organisms/Footer/Footer'
