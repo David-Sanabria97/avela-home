@@ -9,7 +9,6 @@ import { useCartStore } from '@/store/cartStore'
 import { useRouter } from 'next/navigation'
 
 const AROMAS = ['Talco', 'Frutos Rojos', 'Bambú', 'Cuero']
-const WHATSAPP_NUMBER = '573176948380'
 
 const FEATURES = [
   '70% cera de soya · 30% parafina premium',

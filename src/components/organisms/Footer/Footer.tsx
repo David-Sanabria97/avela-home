@@ -1,5 +1,6 @@
 import styles from './Footer.module.scss'
 import Llamita from '@/img/llamita.svg'
+import Image from 'next/image'
 
 const LINKS = {
   ayuda: [
@@ -26,7 +27,7 @@ export default function Footer() {
           {/* Marca */}
           <div>
             <div className={styles.logo}>
-              <img src={Llamita.src} alt="Logo Avela" width={24} height={24} />
+              <Image src={Llamita.src} alt="Logo Avela" width={24} height={24} />
               avela home
             </div>
             <p className={styles.desc}>
