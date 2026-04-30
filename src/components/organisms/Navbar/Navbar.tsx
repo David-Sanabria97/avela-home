@@ -6,10 +6,13 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './Navbar.module.scss'
 import Logo from '@/img/logo.png'
+import { useCartStore } from '@/store/cartStore'
 
 const NAV_LINKS = [
   { label: 'Inicio', href: '/' },
   { label: 'Tienda', href: '/tienda' },
+  { label: 'Sobre Avela', href: '/sobre-avela' },
+  { label: 'Contacto', href: '/contacto' },
 ]
 
 const SUB_LINKS = [
@@ -19,13 +22,10 @@ const SUB_LINKS = [
   { label: 'Kits de regalo', filter: 'kit' },
 ]
 
-interface NavbarProps {
-  cartCount?: number
-}
-
-export default function Navbar({ cartCount = 0 }: NavbarProps) {
+export default function Navbar() {
   const [activeSubLink, setActiveSubLink] = useState('todas')
   const router = useRouter()
+  const totalItems = useCartStore((state) => state.totalItems)
 
   function handleSubLink(filter: string) {
     setActiveSubLink(filter)
@@ -69,16 +69,16 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
               </svg>
             </button>
 
-            <button className={styles.iconBtn} aria-label="Carrito">
+            <Link href="/carrito" className={styles.iconBtn} aria-label="Carrito">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <path d="M16 10a4 4 0 0 1-8 0" />
               </svg>
-              {cartCount > 0 && (
-                <span className={styles.cartBadge}>{cartCount}</span>
+              {totalItems() > 0 && (
+                <span className={styles.cartBadge}>{totalItems()}</span>
               )}
-            </button>
+            </Link>
           </div>
         </div>
       </nav>

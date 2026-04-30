@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useCartStore } from '@/store/cartStore'
 import Image from 'next/image'
 import Link from 'next/link'
 import ProductFilter, { FilterType } from '@/components/organisms/ProductFilter/ProductFilter'
@@ -48,6 +49,7 @@ const PRODUCTS = [
   },
 ]
 
+
 function formatPrice(amount: number) {
   return new Intl.NumberFormat('es-CO', {
     style: 'currency',
@@ -57,6 +59,8 @@ function formatPrice(amount: number) {
 }
 
 export default function TiendaContent() {
+const { addItem } = useCartStore()
+
   const searchParams = useSearchParams()
   const filterParam = searchParams.get('filter') as FilterType | null
 
@@ -79,10 +83,24 @@ export default function TiendaContent() {
     )
   }
 
-  function handleAdd(id: number) {
-    setAdded((prev) => [...prev, id])
-    setTimeout(() => setAdded((prev) => prev.filter((i) => i !== id)), 1800)
+  function handleAdd(product: typeof PRODUCTS[0]) {
+  const aroma = selectedAromas[product.id]
+  if (!aroma) {
+    alert('Por favor selecciona un aroma')
+    return
   }
+  addItem({
+    id: product.id,
+    slug: product.slug,
+    name: product.name,
+    price: product.price,
+    aroma,
+    image: '',
+  })
+  setAdded((prev) => [...prev, product.id])
+  setTimeout(() => setAdded((prev) => prev.filter((i) => i !== product.id)), 1800)
+}
+
 
   function selectAroma(productId: number, aroma: string) {
     setSelectedAromas((prev) => ({ ...prev, [productId]: aroma }))
@@ -165,7 +183,7 @@ export default function TiendaContent() {
 
               <button
                 className={`${styles.addBtn} ${added.includes(product.id) ? styles.added : ''}`}
-                onClick={() => handleAdd(product.id)}
+                onClick={() => handleAdd(product)}
               >
                 {added.includes(product.id) ? '✓ Agregado' : 'Agregar al carrito'}
               </button>

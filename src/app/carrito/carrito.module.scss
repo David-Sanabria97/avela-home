@@ -1,0 +1,344 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.section {
+  @include m.container;
+  padding-block: v.$space-16;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 60px;
+  align-items: start;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: v.$space-10;
+  }
+}
+
+// ── Empty ─────────────────────────────────────────────────────────────────────
+.empty {
+  @include m.container;
+  padding-block: v.$space-20;
+  text-align: center;
+}
+
+.emptyInner {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: v.$space-6;
+}
+
+.emptyTitle {
+  font-family: v.$font-serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: v.$brown;
+  margin-bottom: v.$space-3;
+}
+
+.emptyDesc {
+  font-family: v.$font-sans;
+  font-size: 15px;
+  color: v.$text2;
+  font-weight: 400;
+  margin-bottom: v.$space-8;
+  line-height: 1.7;
+}
+
+.emptyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: v.$brown;
+  color: v.$cream;
+  padding: 14px 32px;
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: v.$transition;
+
+  &:hover {
+    background: v.$gold;
+  }
+}
+
+// ── Left ──────────────────────────────────────────────────────────────────────
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: v.$space-8;
+  padding-bottom: v.$space-6;
+  border-bottom: 1px solid v.$border-brown;
+}
+
+.title {
+  font-family: v.$font-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: v.$brown;
+}
+
+.clearBtn {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: v.$text2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-weight: 400;
+
+  &:hover {
+    color: v.$brown;
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-4;
+  margin-bottom: v.$space-6;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: v.$space-5;
+  border: 1px solid v.$border-brown;
+  background: v.$cream2;
+  gap: v.$space-4;
+
+  @include m.sm {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemName {
+  font-family: v.$font-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: v.$brown;
+  margin-bottom: 4px;
+}
+
+.itemAroma {
+  font-family: v.$font-sans;
+  font-size: 12px;
+  color: v.$gold;
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.itemPrice {
+  font-family: v.$font-sans;
+  font-size: 13px;
+  color: v.$text2;
+  font-weight: 400;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: v.$space-4;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: v.$space-3;
+  border: 1px solid v.$border-brown;
+  padding: 4px 8px;
+}
+
+.qtyBtn {
+  font-family: v.$font-sans;
+  font-size: 16px;
+  color: v.$brown;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: v.$gold;
+  }
+}
+
+.qtyNum {
+  font-family: v.$font-sans;
+  font-size: 14px;
+  font-weight: 500;
+  color: v.$brown;
+  min-width: 20px;
+  text-align: center;
+}
+
+.itemTotal {
+  font-family: v.$font-sans;
+  font-size: 15px;
+  font-weight: 500;
+  color: v.$brown;
+  min-width: 80px;
+  text-align: right;
+}
+
+.removeBtn {
+  font-size: 20px;
+  color: v.$text2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1;
+
+  &:hover {
+    color: v.$brown;
+  }
+}
+
+.bagNote {
+  font-family: v.$font-sans;
+  font-size: 12px;
+  color: v.$text2;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  padding: v.$space-4;
+  border: 1px solid v.$border-gold;
+  background: rgba(184, 147, 90, 0.04);
+}
+
+// ── Right ─────────────────────────────────────────────────────────────────────
+.summary {
+  border: 1px solid v.$border-brown;
+  padding: v.$space-8;
+  background: v.$cream2;
+  position: sticky;
+  top: 100px;
+}
+
+.summaryTitle {
+  font-family: v.$font-serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: v.$brown;
+  margin-bottom: v.$space-6;
+  padding-bottom: v.$space-4;
+  border-bottom: 1px solid v.$border-brown;
+}
+
+.summaryRows {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+  margin-bottom: v.$space-5;
+  padding-bottom: v.$space-5;
+  border-bottom: 1px solid v.$border-brown;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-family: v.$font-sans;
+  font-size: 14px;
+  color: v.$text2;
+  font-weight: 400;
+}
+
+.shipping {
+  color: v.$gold;
+  font-size: 12px;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  font-family: v.$font-sans;
+  font-size: 16px;
+  font-weight: 600;
+  color: v.$brown;
+  margin-bottom: v.$space-6;
+}
+
+.btnWa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-3;
+  background: #25D366;
+  color: #fff;
+  padding: 16px;
+  font-family: v.$font-sans;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: v.$transition;
+  width: 100%;
+  margin-bottom: v.$space-3;
+
+  &:hover {
+    background: #1da851;
+  }
+}
+
+.hint {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  color: v.$text2;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: v.$space-4;
+}
+
+.continuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: v.$brown;
+  padding: 12px;
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: 1px solid v.$border-brown;
+  text-decoration: none;
+  transition: v.$transition;
+  width: 100%;
+
+  &:hover {
+    border-color: v.$brown;
+    background: rgba(44, 31, 16, 0.04);
+  }
+}
