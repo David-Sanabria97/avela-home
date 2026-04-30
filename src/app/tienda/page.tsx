@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Navbar from '@/components/organisms/Navbar/Navbar'
 import Footer from '@/components/organisms/Footer/Footer'
@@ -59,10 +60,16 @@ function formatPrice(amount: number) {
 }
 
 export default function TiendaPage() {
-  const [activeFilter, setActiveFilter] = useState<FilterType>('todas')
-  const [selectedAromas, setSelectedAromas] = useState<Record<number, string>>({})
-  const [wishlisted, setWishlisted] = useState<number[]>([])
-  const [added, setAdded] = useState<number[]>([])
+    const searchParams = useSearchParams()
+    const filterParam = searchParams.get('filter') as FilterType | null
+    const [activeFilter, setActiveFilter] = useState<FilterType>('todas')
+    const [selectedAromas, setSelectedAromas] = useState<Record<number, string>>({})
+    const [wishlisted, setWishlisted] = useState<number[]>([])
+    const [added, setAdded] = useState<number[]>([])
+
+  useEffect(() => {
+    if (filterParam) setActiveFilter(filterParam)
+  }, [filterParam])
 
   const filtered = activeFilter === 'todas'
     ? PRODUCTS

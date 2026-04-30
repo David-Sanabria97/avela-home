@@ -2,24 +2,21 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './Navbar.module.scss'
-import Logo from "@/img/logo.png"
+import Logo from '@/img/logo.png'
+
 const NAV_LINKS = [
   { label: 'Inicio', href: '/' },
   { label: 'Tienda', href: '/tienda' },
-  { label: 'Colecciones', href: '/colecciones' },
-  { label: 'Sobre Avela', href: '/sobre-avela' },
-  { label: 'Contacto', href: '/contacto' },
 ]
 
 const SUB_LINKS = [
-  'Todas',
-  'Aromáticas',
-  'Masaje',
-  'Kits de regalo',
-  'Más vendidas',
-  'Nuevos aromas',
+  { label: 'Todas', filter: 'todas' },
+  { label: 'Aromáticas', filter: 'aromatica' },
+  { label: 'Masaje', filter: 'masaje' },
+  { label: 'Kits de regalo', filter: 'kit' },
 ]
 
 interface NavbarProps {
@@ -27,7 +24,13 @@ interface NavbarProps {
 }
 
 export default function Navbar({ cartCount = 0 }: NavbarProps) {
-  const [activeSubLink, setActiveSubLink] = useState('Todas')
+  const [activeSubLink, setActiveSubLink] = useState('todas')
+  const router = useRouter()
+
+  function handleSubLink(filter: string) {
+    setActiveSubLink(filter)
+    router.push(`/tienda?filter=${filter}`)
+  }
 
   return (
     <header>
@@ -37,7 +40,7 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
 
       <nav className={styles.nav}>
         <div className={styles.inner}>
-          <Link href="/" >
+          <Link href="/">
             <Image src={Logo} alt="Logo Avela" width={140} height={120} />
           </Link>
 
@@ -81,13 +84,13 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
       </nav>
 
       <div className={styles.subNav}>
-        {SUB_LINKS.map((label) => (
+        {SUB_LINKS.map((item) => (
           <button
-            key={label}
-            className={`${styles.subLink} ${activeSubLink === label ? styles.active : ''}`}
-            onClick={() => setActiveSubLink(label)}
+            key={item.filter}
+            className={`${styles.subLink} ${activeSubLink === item.filter ? styles.active : ''}`}
+            onClick={() => handleSubLink(item.filter)}
           >
-            {label}
+            {item.label}
           </button>
         ))}
       </div>

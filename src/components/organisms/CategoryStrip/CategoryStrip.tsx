@@ -1,14 +1,17 @@
-import Image from 'next/image'
-import kit3Velas from "@/img/kit-3-velas .png"
-import velaVidrio from "@/img/vidrio.jpeg"
-import styles from './CategoryStrip.module.scss'
+'use client'
 
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import kit3Velas from '@/img/kit-3-velas .png'
+import velaVidrio from '@/img/vidrio.jpeg'
+import styles from './CategoryStrip.module.scss'
 
 const CATEGORIES = [
   {
     id: 1,
     label: 'Colección',
     name: 'Velas Aromáticas',
+    filter: 'aromatica',
     image: 'https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?w=700&q=80',
     alt: 'Velas aromáticas Avela',
   },
@@ -16,6 +19,7 @@ const CATEGORIES = [
     id: 2,
     label: 'Colección',
     name: 'Kits de Regalo',
+    filter: 'kit',
     image: kit3Velas,
     alt: 'Kits de regalo Avela',
   },
@@ -23,16 +27,24 @@ const CATEGORIES = [
     id: 3,
     label: 'Colección',
     name: 'Velas de Masaje',
+    filter: 'masaje',
     image: velaVidrio,
     alt: 'Velas de masaje Avela',
   },
 ]
 
 export default function CategoryStrip() {
+  const router = useRouter()
+
   return (
     <div className={styles.section}>
       {CATEGORIES.map((cat) => (
-        <div key={cat.id} className={styles.card}>
+        <div
+          key={cat.id}
+          className={styles.card}
+          onClick={() => router.push(`/tienda?filter=${cat.filter}`)}
+          style={{ cursor: 'pointer' }}
+        >
           <div className={styles.image}>
             <Image
               src={cat.image}
