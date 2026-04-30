@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import Navbar from '@/components/organisms/Navbar/Navbar'
 import Footer from '@/components/organisms/Footer/Footer'
 import WhatsAppButton from '@/components/atoms/WhatsAppButton/WhatsAppButton'
 import ProductDetail from '@/components/organisms/ProductDetail/ProductDetail'
@@ -51,7 +50,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <Navbar cartCount={0} />
       <ProductDetail product={product} />
       <Footer />
       <WhatsAppButton />

@@ -1,4 +1,3 @@
-import Navbar from '@/components/organisms/Navbar/Navbar'
 import Hero from '@/components/organisms/Hero/Hero'
 import CategoryStrip from '@/components/organisms/CategoryStrip/CategoryStrip'
 import ExperienceBar from '@/components/organisms/ExperienceBar/ExperienceBar'
@@ -10,7 +9,6 @@ import Footer from '@/components/organisms/Footer/Footer'
 export default function Home() {
   return (
     <main>
-      <Navbar cartCount={0} />
       <Hero />
       <CategoryStrip />
       <ExperienceBar />
