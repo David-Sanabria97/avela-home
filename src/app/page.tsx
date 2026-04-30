@@ -14,7 +14,7 @@ export default function Home() {
       <ExperienceBar />
       <ProductGrid />
      
-      <Footer />
+      
     </main>
   )
 }
