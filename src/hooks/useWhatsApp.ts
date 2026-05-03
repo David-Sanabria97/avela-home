@@ -1,7 +1,6 @@
 import { CartItem } from '@/store/cartStore'
 
 const WHATSAPP_NUMBER = '573176948380'
-const BAG_COST = 1500
 
 function formatPrice(amount: number) {
   return new Intl.NumberFormat('es-CO', {

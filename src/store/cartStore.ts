@@ -21,7 +21,6 @@ interface CartStore {
   totalPrice: () => number
 }
 
-const BAG_COST = 1500
 
 export const useCartStore = create<CartStore>()(
   persist(

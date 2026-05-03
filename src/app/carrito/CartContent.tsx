@@ -5,7 +5,6 @@ import { useCartStore } from '@/store/cartStore'
 import { buildCartWhatsAppUrl } from '@/hooks/useWhatsApp'
 import styles from './carrito.module.scss'
 
-const BAG_COST = 1500
 
 function formatPrice(amount: number) {
   return new Intl.NumberFormat('es-CO', {
