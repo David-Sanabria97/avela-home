@@ -23,7 +23,9 @@ export default function Collections() {
             <div
               key={col.id}
               className={styles.card}
-              onClick={() => router.push(`/colecciones?filter=todas`)}
+              onClick={() =>
+                router.push(`/producto/vela-vidrio?coleccion=${col.id}`)
+              }
             >
               <div className={styles.cardImg}>
                 <Image

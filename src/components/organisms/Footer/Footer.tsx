@@ -9,7 +9,7 @@ const LINKS = {
     'Política de privacidad',
   ],
   avela: ['Nuestra historia', 'Filosofía', 'Sostenibilidad', 'Hecho a mano', 'Blog'],
-  contacto: ['hola@avela.co', '+57 317 694 8380', '@avela_home'],
+  contacto: ['avelahomeco@gmail.com', '+57 317 694 8380', '@avela_home'],
 }
 
 const GUARANTEES = [

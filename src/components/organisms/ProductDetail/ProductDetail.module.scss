@@ -126,6 +126,7 @@
 // ── Aroma dinámico ────────────────────────────────────────────────────────────
 .aromaDesc {
   margin-bottom: v.$space-6;
+  margin-top: v.$space-6;
 }
 
 .mood {
@@ -443,4 +444,71 @@
   text-transform: uppercase;
   color: v.$gold;
   font-weight: 500;
+}
+
+// ── Selects ───────────────────────────────────────────────────────────────────
+.selectSection {
+  margin-bottom: v.$space-5;
+}
+
+.selectLabel {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: v.$brown;
+  font-weight: 600;
+  display: block;
+  margin-bottom: v.$space-2;
+}
+
+.selectWrap {
+  position: relative;
+
+  &::after {
+    content: "↓";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: v.$gold;
+    font-size: 12px;
+    pointer-events: none;
+  }
+}
+
+.select {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  font-family: v.$font-sans;
+  font-size: 13px;
+  color: v.$brown;
+  background: v.$cream;
+  border: 1px solid v.$border-brown;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  font-weight: 400;
+
+  &:focus {
+    outline: none;
+    border-color: v.$gold;
+  }
+
+  &:hover {
+    border-color: v.$gold;
+  }
+}
+
+.btnCartAdded {
+  background: v.$green;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+
+  &:hover {
+    background: v.$green;
+  }
 }

@@ -1,293 +1,14 @@
 @use "variables" as v;
 @use "mixins" as m;
 
-.hero {
-  background: v.$text;
-  border-bottom: 1px solid v.$border-brown;
-  padding: v.$space-12 40px;
-  text-align: center;
-
-  @include m.md {
-    padding: v.$space-8 20px;
-  }
-}
-
-.heroInner {
-  @include m.container;
-  padding-inline: 0;
-}
-
-.title {
-  font-family: v.$font-serif;
-  font-size: m.fluid(36, 52);
-  font-weight: 300;
-  color: v.$brown;
-  line-height: 1.1;
-  margin-bottom: v.$space-3;
-
-  em {
-    font-style: italic;
-    color: v.$gold;
-  }
-}
-
-.subtitle {
-  font-family: v.$font-sans;
-  font-size: 15px;
-  color: v.$text2;
-  font-weight: 400;
-}
-
-.section {
-  @include m.container;
-  padding-block: v.$space-12;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-
-  @include m.md {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  @include m.sm {
-    grid-template-columns: 1fr;
-  }
-}
-
-.card {
-  cursor: pointer;
-
-  &:hover .imageWrap img {
-    transform: scale(1.04);
-  }
-
-  &:hover .overlay {
-    opacity: 1;
-  }
-}
-
-.imageWrap {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  margin-bottom: v.$space-4;
-  background: v.$cream2;
-  overflow: hidden;
-
-  img {
-    transition: v.$transition-img;
-  }
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(44, 31, 16, 0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: v.$space-6;
-  z-index: 2;
-}
-
-.quickView {
-  background: v.$cream;
-  color: v.$brown;
-  padding: 10px 24px;
-  font-family: v.$font-sans;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: v.$transition;
-
-  &:hover {
-    background: v.$gold;
-    color: #fff;
-  }
-}
-
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 3;
-  font-family: v.$font-sans;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-}
-
-.badgeNew {
-  background: v.$green;
-  color: #fff;
-}
-
-.badgeBest {
-  background: v.$brown;
-  color: v.$gold-pale;
-}
-
-.wishBtn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 3;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(250, 248, 245, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease;
-
-  &:hover {
-    background: v.$gold-pale;
-  }
-}
-
-.name {
-  font-family: v.$font-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: v.$brown;
-  margin-bottom: v.$space-3;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: v.$gold;
-  }
-}
-
-.aromasWrap {
-  margin-bottom: v.$space-3;
-}
-
-.aromaLabel {
-  font-family: v.$font-sans;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: v.$text2;
-  font-weight: 500;
-  display: block;
-  margin-bottom: v.$space-2;
-}
-
-.aromas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.aromaBtn {
-  font-family: v.$font-sans;
-  font-size: 10px;
-  padding: 5px 12px;
-  border: 1px solid v.$border-brown;
-  background: transparent;
-  color: v.$text2;
-  cursor: pointer;
-  transition: v.$transition;
-  font-weight: 400;
-
-  &:hover {
-    border-color: v.$gold;
-    color: v.$gold;
-  }
-}
-
-.aromaActive {
-  border-color: v.$gold;
-  color: v.$gold;
-  background: rgba(184, 147, 90, 0.08);
-}
-
-.price {
-  font-family: v.$font-sans;
-  font-size: 18px;
-  font-weight: 500;
-  color: v.$brown;
-  margin-bottom: v.$space-3;
-
-  s {
-    font-size: 14px;
-    color: v.$text2;
-    font-weight: 400;
-    margin-right: 6px;
-  }
-}
-
-.addBtn {
-  width: 100%;
-  background: v.$brown;
-  color: v.$cream;
-  padding: 13px;
-  font-family: v.$font-sans;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: v.$transition;
-
-  &:hover {
-    background: v.$gold;
-  }
-
-  &.added {
-    background: v.$green;
-  }
-}
-.aromaHint {
-  font-family: v.$font-sans;
-  font-size: 11px;
-  color: v.$gold;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-bottom: v.$space-3;
-}
-
-.verAromasBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: v.$brown;
-  color: v.$cream;
-  padding: 13px;
-  font-family: v.$font-sans;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  text-decoration: none;
-  transition: v.$transition;
-
-  &:hover {
-    background: v.$gold;
-  }
-}
+// ── Page Header ───────────────────────────────────────────────────────────────
 .pageHeader {
   background: v.$brown;
-  padding: 100px 40px 40px;
+  padding: 100px 40px 48px;
   text-align: center;
 
   @include m.md {
-    padding: 100px 20px 32px;
+    padding: 100px 20px 36px;
   }
 }
 
@@ -305,13 +26,131 @@
 
 .title {
   font-family: v.$font-serif;
-  font-size: m.fluid(32, 48);
+  font-size: m.fluid(36, 56);
   font-weight: 300;
   color: v.$cream;
   line-height: 1.1;
+  margin-bottom: v.$space-4;
 
   em {
     font-style: italic;
     color: v.$gold2;
   }
+}
+
+.subtitle {
+  font-family: v.$font-sans;
+  font-size: 15px;
+  color: rgba(250, 248, 245, 0.55);
+  font-weight: 300;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────────
+.section {
+  @include m.container;
+  padding-block: v.$space-12;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include m.lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+.card {
+  cursor: pointer;
+
+  &:hover .imageWrap img {
+    transform: scale(1.05);
+  }
+
+  &:hover .overlay {
+    background: rgba(26, 16, 8, 0.65);
+  }
+
+  &:hover .cardLink {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: v.$cream2;
+
+  img {
+    transition: transform 0.6s ease;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 16, 8, 0.45);
+  transition: background 0.3s ease;
+}
+
+.cardBody {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 24px;
+  z-index: 2;
+}
+
+.cardName {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.cardTagline {
+  font-family: v.$font-serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.cardAromas {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  color: rgba(250, 248, 245, 0.6);
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+
+.cardLink {
+  font-family: v.$font-sans;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: v.$gold2;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  display: block;
 }
