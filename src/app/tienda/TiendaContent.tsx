@@ -59,13 +59,11 @@ function formatPrice(amount: number) {
 }
 
 export default function TiendaContent() {
-const { addItem } = useCartStore()
 
   const searchParams = useSearchParams()
   const filterParam = searchParams.get('filter') as FilterType | null
 
   const [activeFilter, setActiveFilter] = useState<FilterType>(filterParam ?? 'todas')
-  const [selectedAromas, setSelectedAromas] = useState<Record<number, string>>({})
   const [wishlisted, setWishlisted] = useState<number[]>([])
 
   useEffect(() => {
@@ -82,26 +80,9 @@ const { addItem } = useCartStore()
     )
   }
 
-  function handleAdd(product: typeof PRODUCTS[0]) {
-  const aroma = selectedAromas[product.id]
-  if (!aroma) {
-    alert('Por favor selecciona un aroma')
-    return
-  }
-  addItem({
-    id: product.id,
-    slug: product.slug,
-    name: product.name,
-    price: product.price,
-    aroma,
-    image: '',
-  })
-}
+ 
 
 
-  function selectAroma(productId: number, aroma: string) {
-    setSelectedAromas((prev) => ({ ...prev, [productId]: aroma }))
-  }
 
   return (
     <>
