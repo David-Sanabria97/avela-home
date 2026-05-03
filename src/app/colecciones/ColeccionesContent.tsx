@@ -7,7 +7,6 @@ import Link from "next/link";
 import ProductFilter, {
   FilterType,
 } from "@/components/organisms/ProductFilter/ProductFilter";
-
 import styles from "./Colecciones.module.scss";
 import imgCorcho from "@/img/corcho.jpeg";
 import imgVidrio from "@/img/vidrio.jpeg";
@@ -83,14 +82,19 @@ export default function ColeccionesContent() {
 
   return (
     <>
-      <div className={styles.hero}>_</div>
-
+      <div className={styles.pageHeader}>
+        <div className={styles.pageHeaderInner}>
+          <span className={styles.eyebrow}></span>
+        </div>
+      </div>
+      {/* Filtros */}
       <ProductFilter
         active={activeFilter}
         total={filtered.length}
         onChange={setActiveFilter}
       />
 
+      {/* Grid */}
       <section className={styles.section}>
         <div className={styles.grid}>
           {filtered.map((product) => (
@@ -136,8 +140,12 @@ export default function ColeccionesContent() {
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                     </svg>
                   </button>
-                </div>
 
+                  {/* Overlay hover */}
+                  <div className={styles.overlay}>
+                    <span className={styles.quickView}>Ver producto</span>
+                  </div>
+                </div>
                 <h3 className={styles.name}>{product.name}</h3>
               </Link>
 

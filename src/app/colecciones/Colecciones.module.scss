@@ -17,12 +17,6 @@
   padding-inline: 0;
 }
 
-.eyebrow {
-  @include m.eyebrow;
-  display: block;
-  margin-bottom: v.$space-3;
-}
-
 .title {
   font-family: v.$font-serif;
   font-size: m.fluid(36, 52);
@@ -285,5 +279,39 @@
 
   &:hover {
     background: v.$gold;
+  }
+}
+.pageHeader {
+  background: v.$brown;
+  padding: 100px 40px 40px;
+  text-align: center;
+
+  @include m.md {
+    padding: 100px 20px 32px;
+  }
+}
+
+.pageHeaderInner {
+  @include m.container;
+  padding-inline: 0;
+}
+
+.eyebrow {
+  @include m.eyebrow;
+  color: v.$gold;
+  display: block;
+  margin-bottom: v.$space-3;
+}
+
+.title {
+  font-family: v.$font-serif;
+  font-size: m.fluid(32, 48);
+  font-weight: 300;
+  color: v.$cream;
+  line-height: 1.1;
+
+  em {
+    font-style: italic;
+    color: v.$gold2;
   }
 }

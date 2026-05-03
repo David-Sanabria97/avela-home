@@ -1,13 +1,12 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import styles from './Collections.module.scss'
-import { COLLECTIONS } from '@/constants/collections'
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import styles from "./Collections.module.scss";
+import { COLLECTIONS } from "@/constants/collections";
 
 export default function Collections() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <section className={styles.section}>
@@ -27,7 +26,12 @@ export default function Collections() {
               onClick={() => router.push(`/colecciones?filter=todas`)}
             >
               <div className={styles.cardImg}>
-                <Image src={col.image} alt={col.name} fill style={{ objectFit: 'cover' }} />
+                <Image
+                  src={col.image}
+                  alt={col.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
               </div>
               <div className={styles.cardOverlay} />
               <div className={styles.cardBody}>
@@ -40,5 +44,5 @@ export default function Collections() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,9 +1,10 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .section {
   @include m.container;
-  padding-block: v.$space-16;
+  padding-top: v.$space-12;
+  padding-bottom: v.$space-16;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -16,7 +17,6 @@
     max-width: 600px;
   }
 }
-
 // ── Columna izquierda ─────────────────────────────────────────────────────────
 .leftCol {
   display: flex;
@@ -395,4 +395,52 @@
   font-weight: 400;
   text-align: center;
   line-height: 1.6;
+}
+
+// ── Page header oscuro (navbar transparente) ──────────────────────────────────
+.pageHeader {
+  background: v.$brown;
+  padding: 100px 40px 20px;
+
+  @include m.md {
+    padding: 100px 20px 16px;
+  }
+}
+
+.breadcrumb {
+  @include m.container;
+  padding-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+}
+
+.breadcrumbLink {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(250, 248, 245, 0.5);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: v.$gold2;
+  }
+}
+
+.breadcrumbSep {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  color: rgba(250, 248, 245, 0.25);
+}
+
+.breadcrumbCurrent {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: v.$gold;
+  font-weight: 500;
 }
