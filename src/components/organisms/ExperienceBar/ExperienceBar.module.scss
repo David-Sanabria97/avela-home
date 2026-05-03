@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .section {
   background: v.$cream;
@@ -23,6 +23,10 @@
 
   @include m.md {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.sm {
+    grid-template-columns: 1fr; // ← colapsa a 1 columna bajo 640px
   }
 }
 
@@ -51,6 +55,17 @@
 
     &:nth-child(4) {
       border-right: none;
+    }
+  }
+
+  // ← bloque nuevo para móvil
+  @include m.sm {
+    padding: 24px 16px;
+    border-right: none;
+    border-bottom: 1px solid v.$border-brown;
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 }

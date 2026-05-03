@@ -4,18 +4,15 @@
 .hero {
   background: #1a1008;
   position: relative;
-  overflow: hidden;
-  min-height: 65vh;
+  min-height: 85vh;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
 
   @include m.lg {
     grid-template-columns: 1fr;
-    min-height: auto;
   }
 }
 
-// ── Logo centrado arriba ──────────────────────────────────────────────────────
 .logoBar {
   position: absolute;
   top: 0;
@@ -27,26 +24,29 @@
   z-index: 3;
 }
 
-// ── Lado izquierdo ────────────────────────────────────────────────────────────
 .left {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 60px 60px 80px;
+  padding: 120px 60px 80px 80px;
   position: relative;
   z-index: 2;
 
   @include m.lg {
-    padding: 100px 32px 48px;
+    padding: 120px 20px 40px;
     text-align: center;
     align-items: center;
+  }
+
+  @include m.sm {
+    padding: 120px 20px 40px;
   }
 }
 
 .nav {
   display: flex;
   gap: 28px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 
   @include m.lg {
     display: none;
@@ -78,7 +78,7 @@
 
 .title {
   font-family: v.$font-serif;
-  font-size: m.fluid(44, 72);
+  font-size: m.fluid(36, 72);
   font-weight: 300;
   color: #fff;
   line-height: 1.08;
@@ -138,13 +138,15 @@
   }
 }
 
-// ── Lado derecho — imagen ─────────────────────────────────────────────────────
 .right {
   position: relative;
-  overflow: hidden;
 
   @include m.lg {
-    height: 480px;
+    height: 400px;
+  }
+
+  @include m.sm {
+    height: 280px;
   }
 }
 
@@ -155,19 +157,12 @@
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
   }
 
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      #1a1008 0%,
-      rgba(26, 16, 8, 0.3) 40%,
-      transparent 100%
-    );
+    background: linear-gradient(to bottom, transparent 40%, #1a1008 100%);
   }
 }

@@ -7,8 +7,6 @@ import styles from "./Hero.module.scss";
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      {/* Derecha — imagen */}
-
       <div className={styles.image}>
         <div className={styles.left}>
           <h1 className={styles.title}>

@@ -25,7 +25,18 @@
   }
 }
 
+// Nav sticky — páginas internas
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: v.$brown;
+  border-bottom: 1px solid rgba(184, 147, 90, 0.15);
+  transition: background 0.3s ease;
+}
+
+// Nav transparente — solo home sobre el hero
+.navTransparent {
   position: absolute;
   top: 34px;
   left: 0;
@@ -35,39 +46,23 @@
   border-bottom: none;
 }
 
-.inner {
-  @include m.container;
-  height: 80px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: v.$space-6;
-
-  @include m.lg {
-    grid-template-columns: auto 1fr auto;
-  }
-}
-
-// ── Links izquierda ───────────────────────────────────────────────────────────
 .linksLeft {
   display: flex;
   gap: 32px;
   list-style: none;
   align-items: center;
-  color: v.$gold2;
+
   @include m.lg {
     display: none;
   }
 }
 
-// ── Logo centrado ─────────────────────────────────────────────────────────────
 .logoWrap {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// ── Links derecha ─────────────────────────────────────────────────────────────
 .linksRight {
   display: flex;
   gap: 32px;
@@ -85,7 +80,7 @@
   font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: v.$cream;
+  color: rgba(250, 248, 245, 0.8);
   font-weight: 400;
   transition: v.$transition;
   padding-bottom: 2px;
@@ -93,20 +88,16 @@
   text-decoration: none;
 
   &:hover {
+    color: v.$gold2;
     border-color: v.$gold;
   }
 }
 
-// ── Acciones ─────────────────────────────────────────────────────────────────
 .actions {
   display: flex;
   align-items: center;
   gap: 10px;
   justify-content: flex-end;
-
-  @include m.lg {
-    display: flex;
-  }
 }
 
 .iconBtn {
@@ -115,7 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: v.$cream;
+  color: rgba(250, 248, 245, 0.8);
   background: none;
   border: none;
   cursor: pointer;
@@ -124,7 +115,7 @@
   text-decoration: none;
 
   &:hover {
-    border-color: v.$gold;
+    color: v.$gold2;
   }
 }
 
@@ -145,7 +136,6 @@
   pointer-events: none;
 }
 
-// ── Sub nav ───────────────────────────────────────────────────────────────────
 .subNav {
   background: v.$cream2;
   border-bottom: 1px solid v.$border-brown;
@@ -183,6 +173,19 @@
   &.active {
     background: v.$brown;
     color: v.$gold-pale;
+  }
+}
+
+.inner {
+  @include m.container;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: v.$space-6;
+
+  @include m.lg {
+    grid-template-columns: auto 1fr auto;
   }
 }
 

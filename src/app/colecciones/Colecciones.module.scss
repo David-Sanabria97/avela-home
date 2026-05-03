@@ -4,11 +4,11 @@
 // ── Page Header ───────────────────────────────────────────────────────────────
 .pageHeader {
   background: v.$brown;
-  padding: 100px 40px 48px;
+  padding: 40px;
   text-align: center;
 
   @include m.md {
-    padding: 100px 20px 36px;
+    padding: 40px;
   }
 }
 

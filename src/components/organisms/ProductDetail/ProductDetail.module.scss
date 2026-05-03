@@ -401,10 +401,10 @@
 // ── Page header oscuro (navbar transparente) ──────────────────────────────────
 .pageHeader {
   background: v.$brown;
-  padding: 100px 40px 20px;
+  padding: 20px 40px;
 
   @include m.md {
-    padding: 100px 20px 16px;
+    padding: 20px 40px;
   }
 }
 

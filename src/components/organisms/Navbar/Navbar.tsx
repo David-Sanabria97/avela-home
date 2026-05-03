@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
 import styles from "./Navbar.module.scss";
 import Logo from "@/img/logoClaro.png";
 import { useCartStore } from "@/store/cartStore";
@@ -12,7 +11,16 @@ const LINKS_LEFT = [
   { label: "Colecciones", href: "/colecciones" },
 ];
 
-export default function Navbar() {
+const LINKS_RIGHT = [
+  { label: "Sobre Avela", href: "/sobre-avela" },
+  { label: "Contacto", href: "/contacto" },
+];
+
+interface NavbarProps {
+  transparent?: boolean;
+}
+
+export default function Navbar({ transparent = false }: NavbarProps) {
   const totalItems = useCartStore((state) => state.totalItems);
 
   return (
@@ -21,7 +29,7 @@ export default function Navbar() {
         Envío gratis en compras mayores a $150.000
       </div>
 
-      <nav className={styles.nav}>
+      <nav className={transparent ? styles.navTransparent : styles.nav}>
         <div className={styles.inner}>
           {/* Links izquierda */}
           <ul className={styles.linksLeft}>
@@ -36,7 +44,7 @@ export default function Navbar() {
 
           {/* Logo centrado */}
           <div className={styles.logoWrap}>
-            <Link href="/" className={styles.logo}>
+            <Link href="/">
               <Image src={Logo} alt="Logo Avela" width={120} height={100} />
             </Link>
           </div>
@@ -50,6 +58,16 @@ export default function Navbar() {
               gap: "24px",
             }}
           >
+            <ul className={styles.linksRight}>
+              {LINKS_RIGHT.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className={styles.link}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
             <div className={styles.actions}>
               <button className={styles.iconBtn} aria-label="Buscar">
                 <svg

@@ -86,7 +86,6 @@ export default function ProductDetail({
   ];
   return (
     <>
-      {/* Header oscuro para compensar navbar transparente */}
       <div className={styles.pageHeader}>
         <div className={styles.breadcrumb}>
           <Link href="/colecciones" className={styles.breadcrumbLink}>
