@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useCartStore } from '@/store/cartStore'
 import Image from 'next/image'
 import Link from 'next/link'
 import ProductFilter, { FilterType } from '@/components/organisms/ProductFilter/ProductFilter'
