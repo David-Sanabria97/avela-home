@@ -129,65 +129,48 @@ const { addItem } = useCartStore()
         <div className={styles.grid}>
           {filtered.map((product) => (
             <article key={product.id} className={styles.card}>
-              <Link href={`/producto/${product.slug}`}>
+            <Link href={`/producto/${product.slug}`}>
                 <div className={styles.imageWrap}>
-                  <Image
+                <Image
                     src={product.image}
                     alt={product.name}
                     fill
                     style={{ objectFit: 'cover' }}
-                  />
-                  {product.isNew && (
+                />
+                {product.isNew && (
                     <span className={`${styles.badge} ${styles.badgeNew}`}>Nuevo</span>
-                  )}
-                  {product.isBestSeller && (
+                )}
+                {product.isBestSeller && (
                     <span className={`${styles.badge} ${styles.badgeBest}`}>Más vendida</span>
-                  )}
-                  <button
+                )}
+                <button
                     className={styles.wishBtn}
                     onClick={(e) => {
-                      e.preventDefault()
-                      toggleWish(product.id)
+                    e.preventDefault()
+                    toggleWish(product.id)
                     }}
                     aria-label="Favorito"
-                  >
+                >
                     <svg
-                      width="16" height="16" viewBox="0 0 24 24"
-                      fill={wishlisted.includes(product.id) ? '#B8935A' : 'none'}
-                      stroke={wishlisted.includes(product.id) ? '#B8935A' : '#5C4433'}
-                      strokeWidth="1.5"
+                    width="16" height="16" viewBox="0 0 24 24"
+                    fill={wishlisted.includes(product.id) ? '#B8935A' : 'none'}
+                    stroke={wishlisted.includes(product.id) ? '#B8935A' : '#5C4433'}
+                    strokeWidth="1.5"
                     >
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                     </svg>
-                  </button>
+                </button>
                 </div>
 
                 <h3 className={styles.name}>{product.name}</h3>
-              </Link>
+            </Link>
 
-              <div className={styles.aromasWrap}>
-                <span className={styles.aromaLabel}>Elige tu aroma</span>
-                <div className={styles.aromas}>
-                {AROMAS.map((aroma) => (
-                <button
-                    key={aroma.id}
-                    className={`${styles.aromaBtn} ${selectedAromas[product.id] === aroma.id ? styles.aromaActive : ''}`}
-                    onClick={() => selectAroma(product.id, aroma.id)}
-                >
-                    {aroma.name}
-                </button>
-                ))}
-                </div>
-              </div>
+            <p className={styles.aromaHint}>15 aromas disponibles</p>
+            <p className={styles.price}>{formatPrice(product.price)}</p>
 
-              <p className={styles.price}>{formatPrice(product.price)}</p>
-
-              <button
-                className={`${styles.addBtn} ${added.includes(product.id) ? styles.added : ''}`}
-                onClick={() => handleAdd(product)}
-              >
-                {added.includes(product.id) ? '✓ Agregado' : 'Agregar al carrito'}
-              </button>
+            <Link href={`/producto/${product.slug}`} className={styles.verAromasBtn}>
+                Elegir aroma
+            </Link>
             </article>
           ))}
         </div>
