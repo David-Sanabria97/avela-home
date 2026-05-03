@@ -4,9 +4,7 @@ const nextConfig = {
     includePaths: ['./src/styles'],
   },
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-    ],
+    remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
   },
 }
 

@@ -64,7 +64,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <section className={styles.section}>
-
       {/* Columna izquierda: imagen + descripción empaque */}
       <div className={styles.leftCol}>
         <div className={styles.imageWrap}>
@@ -77,7 +76,14 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
           <div className={styles.bagNote}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8935A" strokeWidth="1.5">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#B8935A"
+              strokeWidth="1.5"
+            >
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 0 1-8 0" />
@@ -123,9 +129,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <div className={styles.aromaSection}>
           <span className={styles.aromaTitle}>
             Elige tu aroma
-            {selectedAroma && (
-              <span className={styles.aromaSelected}> — {selectedAroma.name}</span>
-            )}
+            {selectedAroma && <span className={styles.aromaSelected}> — {selectedAroma.name}</span>}
           </span>
           <div className={styles.aromas}>
             {AROMAS.map((aroma) => (
@@ -161,9 +165,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </button>
           </div>
           {quantity > 1 && (
-            <span className={styles.qtyTotal}>
-              {formatPrice(product.price * quantity)}
-            </span>
+            <span className={styles.qtyTotal}>{formatPrice(product.price * quantity)}</span>
           )}
         </div>
 
@@ -173,7 +175,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             Agregar al carrito
           </button>
 
-          <a 
+          <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
@@ -185,7 +187,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             Pedir por WhatsApp
           </a>
 
-          <Link href="/tienda" className={styles.btnSecondary}>
+          <Link href="/colecciones" className={styles.btnSecondary}>
             Ver más velas
           </Link>
 
@@ -194,7 +196,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </p>
         </div>
       </div>
-
     </section>
   )
 }

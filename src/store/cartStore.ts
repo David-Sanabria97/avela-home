@@ -21,7 +21,6 @@ interface CartStore {
   totalPrice: () => number
 }
 
-
 export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
@@ -29,9 +28,7 @@ export const useCartStore = create<CartStore>()(
 
       addItem: (newItem) => {
         set((state) => {
-          const existing = state.items.find(
-            (i) => i.id === newItem.id && i.aroma === newItem.aroma
-          )
+          const existing = state.items.find((i) => i.id === newItem.id && i.aroma === newItem.aroma)
           if (existing) {
             return {
               items: state.items.map((i) =>
@@ -65,11 +62,9 @@ export const useCartStore = create<CartStore>()(
 
       clearCart: () => set({ items: [] }),
 
-      totalItems: () =>
-        get().items.reduce((acc, i) => acc + i.quantity, 0),
+      totalItems: () => get().items.reduce((acc, i) => acc + i.quantity, 0),
 
-      totalPrice: () =>
-        get().items.reduce((acc, i) => acc + i.price * i.quantity, 0) ,
+      totalPrice: () => get().items.reduce((acc, i) => acc + i.price * i.quantity, 0),
     }),
     { name: 'avela-cart' }
   )

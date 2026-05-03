@@ -1,8 +1,8 @@
-@use 'variables' as v;
-@use 'mixins' as m;
+@use "variables" as v;
+@use "mixins" as m;
 
 .hero {
-  background: v.$cream2;
+  background: v.$text;
   border-bottom: 1px solid v.$border-brown;
   padding: v.$space-12 40px;
   text-align: center;

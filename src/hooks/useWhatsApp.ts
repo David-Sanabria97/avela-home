@@ -12,13 +12,12 @@ function formatPrice(amount: number) {
 
 export function buildCartWhatsAppUrl(items: CartItem[]): string {
   const subtotal = items.reduce((acc, i) => acc + i.price * i.quantity, 0)
-  
-  const total = subtotal 
+
+  const total = subtotal
 
   const itemLines = items
     .map(
-      (i) =>
-        `• ${i.name} — Aroma: ${i.aroma} x${i.quantity} — ${formatPrice(i.price * i.quantity)}`
+      (i) => `• ${i.name} — Aroma: ${i.aroma} x${i.quantity} — ${formatPrice(i.price * i.quantity)}`
     )
     .join('\n')
 
@@ -27,8 +26,7 @@ export function buildCartWhatsAppUrl(items: CartItem[]): string {
     '',
     itemLines,
     '',
-    
-    
+
     `Total: ${formatPrice(total)}`,
     '',
     '¿Está disponible?',

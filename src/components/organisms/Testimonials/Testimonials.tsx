@@ -4,16 +4,16 @@ const TESTIMONIALS = [
   {
     id: 1,
     text: 'Las velas de Avela transforman por completo mi hogar. Los aromas son increíbles y la calidad se nota desde el primer momento.',
-    author: 'Mariana G.',
+    author: 'Diana R.',
     location: 'Bogotá',
-    initial: 'M',
+    initial: 'D',
   },
   {
     id: 2,
     text: 'Mi marca favorita de velas. Me encanta que sean artesanales y con ingredientes naturales. ¡100% recomendadas!',
-    author: 'Andrea S.',
-    location: 'Medellín',
-    initial: 'A',
+    author: 'Liset B.',
+    location: 'Ibagué',
+    initial: 'L',
   },
   {
     id: 3,
@@ -43,8 +43,7 @@ export default function Testimonials() {
                 <div>
                   <span className={styles.name}>{t.author}</span>
                   <span className={styles.location}>
-                    {t.location}{' '}
-                    <span className={styles.verified}>Verificada</span>
+                    {t.location} <span className={styles.verified}>Verificada</span>
                   </span>
                 </div>
               </div>

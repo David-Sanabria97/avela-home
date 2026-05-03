@@ -16,15 +16,13 @@ export default function Newsletter() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-
         <div>
           <span className={styles.eyebrow}>Sé parte de Avela</span>
           <h2 className={styles.title}>
             Recibe <em>contenido exclusivo</em>
           </h2>
           <p className={styles.desc}>
-            Lanzamientos, rituales de bienestar y promociones especiales
-            directamente en tu correo.
+            Lanzamientos, rituales de bienestar y promociones especiales directamente en tu correo.
           </p>
           <div className={styles.perks}>
             <span className={styles.perk}>10% de descuento en tu primera compra</span>
@@ -53,9 +51,7 @@ export default function Newsletter() {
           <button className={styles.btn} type="submit">
             Suscribirme →
           </button>
-         
         </form>
-
       </div>
     </section>
   )

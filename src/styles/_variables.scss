@@ -1,40 +1,40 @@
 // src/styles/_variables.scss
 
 // ── Colores ───────────────────────────────────────────────────────────────────
-$cream:       #FAF8F5;
-$cream2:      #F3EFE8;
-$cream3:      #EDE8DF;
+$cream: #faf8f5;
+$cream2: #f3efe8;
+$cream3: #ede8df;
 
-$gold:        #B8935A;
-$gold2:       #CDA876;
-$gold-pale:   #F0E6D3;
+$gold: #b8935a;
+$gold2: #cda876;
+$gold-pale: #f0e6d3;
 
-$brown:       #2C1F10;
-$brown2:      #5C4433;
-$brown3:      #8C7060;
+$brown: #2c1f10;
+$brown2: #5c4433;
+$brown3: #8c7060;
 
-$text:        #1E1410;
-$text2:       #7A6B5A;
+$text: #1e1410;
+$text2: #7a6b5a;
 
-$green:       #3D6B4F;
-$whatsapp:    #25D366;
+$green: #3d6b4f;
+$whatsapp: #25d366;
 
 // ── Bordes ────────────────────────────────────────────────────────────────────
-$border-gold:   rgba(184, 147, 90, 0.15);
-$border-brown:  rgba(44, 31, 16, 0.08);
+$border-gold: rgba(184, 147, 90, 0.15);
+$border-brown: rgba(44, 31, 16, 0.08);
 
 // ── Tipografía ────────────────────────────────────────────────────────────────
-$font-serif:  'Cormorant Garamond', Georgia, serif;
-$font-sans:   'Jost', system-ui, sans-serif;
+$font-serif: 'Cormorant Garamond', Georgia, serif;
+$font-sans: 'Jost', system-ui, sans-serif;
 
 // ── Espaciado ─────────────────────────────────────────────────────────────────
-$space-1:  4px;
-$space-2:  8px;
-$space-3:  12px;
-$space-4:  16px;
-$space-5:  20px;
-$space-6:  24px;
-$space-8:  32px;
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
 $space-10: 40px;
 $space-12: 48px;
 $space-16: 64px;
@@ -42,7 +42,7 @@ $space-20: 80px;
 
 // ── Layout ────────────────────────────────────────────────────────────────────
 $container-max: 1200px;
-$container-px:  40px;
+$container-px: 40px;
 
 // ── Breakpoints ───────────────────────────────────────────────────────────────
 $bp-sm: 640px;
@@ -50,10 +50,10 @@ $bp-md: 768px;
 $bp-lg: 1024px;
 
 // ── Transiciones ──────────────────────────────────────────────────────────────
-$transition:     all 0.25s ease;
+$transition: all 0.25s ease;
 $transition-img: transform 0.5s ease;
 
 // ── Sombras ───────────────────────────────────────────────────────────────────
 $shadow-sm: 0 4px 16px rgba(44, 31, 16, 0.06);
-$shadow-md: 0 8px 32px rgba(44, 31, 16, 0.10);
+$shadow-md: 0 8px 32px rgba(44, 31, 16, 0.1);
 $shadow-lg: 0 20px 60px rgba(44, 31, 16, 0.12);

@@ -11,9 +11,21 @@
   }
 }
 
-@mixin sm { @media (max-width: v.$bp-sm) { @content; } }
-@mixin md { @media (max-width: v.$bp-md) { @content; } }
-@mixin lg { @media (max-width: v.$bp-lg) { @content; } }
+@mixin sm {
+  @media (max-width: v.$bp-sm) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: v.$bp-md) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: v.$bp-lg) {
+    @content;
+  }
+}
 
 @mixin eyebrow {
   font-family: v.$font-sans;

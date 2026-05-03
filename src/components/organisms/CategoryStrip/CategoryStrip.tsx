@@ -42,16 +42,11 @@ export default function CategoryStrip() {
         <div
           key={cat.id}
           className={styles.card}
-          onClick={() => router.push(`/tienda?filter=${cat.filter}`)}
+          onClick={() => router.push(`/colecciones?filter=${cat.filter}`)}
           style={{ cursor: 'pointer' }}
         >
           <div className={styles.image}>
-            <Image
-              src={cat.image}
-              alt={cat.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-            />
+            <Image src={cat.image} alt={cat.alt} fill style={{ objectFit: 'cover' }} />
           </div>
           <div className={styles.overlay} />
           <div className={styles.body}>

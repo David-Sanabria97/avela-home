@@ -1,14 +1,13 @@
 import { Suspense } from 'react'
 
-import TiendaContent from './TiendaContent'
+import ColeccionesContent from './ColeccionesContent'
 
-export default function TiendaPage() {
+export default function ColeccionesPage() {
   return (
     <>
       <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
-        <TiendaContent />
+        <ColeccionesContent />
       </Suspense>
-
     </>
   )
 }

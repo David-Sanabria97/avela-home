@@ -5,7 +5,6 @@ import { useCartStore } from '@/store/cartStore'
 import { buildCartWhatsAppUrl } from '@/hooks/useWhatsApp'
 import styles from './carrito.module.scss'
 
-
 function formatPrice(amount: number) {
   return new Intl.NumberFormat('es-CO', {
     style: 'currency',
@@ -26,8 +25,10 @@ export default function CartContent() {
         <div className={styles.emptyInner}>
           <span className={styles.emptyIcon}>🕯️</span>
           <h2 className={styles.emptyTitle}>Tu carrito está vacío</h2>
-          <p className={styles.emptyDesc}>Descubre nuestras velas artesanales y encuentra tu aroma favorito.</p>
-          <Link href="/tienda" className={styles.emptyBtn}>
+          <p className={styles.emptyDesc}>
+            Descubre nuestras velas artesanales y encuentra tu aroma favorito.
+          </p>
+          <Link href="/colecciones" className={styles.emptyBtn}>
             Ver colección
           </Link>
         </div>
@@ -38,7 +39,6 @@ export default function CartContent() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-
         {/* Items */}
         <div className={styles.left}>
           <div className={styles.header}>
@@ -73,9 +73,7 @@ export default function CartContent() {
                       +
                     </button>
                   </div>
-                  <div className={styles.itemTotal}>
-                    {formatPrice(item.price * item.quantity)}
-                  </div>
+                  <div className={styles.itemTotal}>{formatPrice(item.price * item.quantity)}</div>
                   <button
                     className={styles.removeBtn}
                     onClick={() => removeItem(item.id, item.aroma)}
@@ -87,8 +85,6 @@ export default function CartContent() {
               </div>
             ))}
           </div>
-
-
         </div>
 
         {/* Resumen */}
@@ -101,7 +97,7 @@ export default function CartContent() {
                 <span>Subtotal ({totalItems()} velas)</span>
                 <span>{formatPrice(subtotal)}</span>
               </div>
-             
+
               <div className={styles.summaryRow}>
                 <span>Envío</span>
                 <span className={styles.shipping}>A confirmar</span>
@@ -129,12 +125,11 @@ export default function CartContent() {
               Te confirmaremos disponibilidad y costo de envío en menos de 24 horas.
             </p>
 
-            <Link href="/tienda" className={styles.continuBtn}>
+            <Link href="/colecciones" className={styles.continuBtn}>
               Seguir comprando
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   )
