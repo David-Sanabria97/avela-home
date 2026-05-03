@@ -12,10 +12,9 @@ function formatPrice(amount: number) {
 }
 
 export function buildCartWhatsAppUrl(items: CartItem[]): string {
-  const totalItems = items.reduce((acc, i) => acc + i.quantity, 0)
   const subtotal = items.reduce((acc, i) => acc + i.price * i.quantity, 0)
-  const bagsCost = totalItems * BAG_COST
-  const total = subtotal + bagsCost
+  
+  const total = subtotal 
 
   const itemLines = items
     .map(
@@ -29,8 +28,8 @@ export function buildCartWhatsAppUrl(items: CartItem[]): string {
     '',
     itemLines,
     '',
-    `Subtotal: ${formatPrice(subtotal)}`,
-    `Bolsas regalo (x${totalItems}): ${formatPrice(bagsCost)}`,
+    
+    
     `Total: ${formatPrice(total)}`,
     '',
     '¿Está disponible?',

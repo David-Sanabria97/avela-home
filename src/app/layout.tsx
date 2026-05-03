@@ -22,7 +22,7 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   title: 'Avela Home — Velas Artesanales · Ibagué, Colombia',
-  description: 'Velas aromáticas y de masaje artesanales. Handpoured en Ibagué, Colombia.',
+  description: 'Velas aromáticas y de masaje artesanales. Ibagué, Colombia.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

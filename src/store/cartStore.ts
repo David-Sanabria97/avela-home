@@ -70,8 +70,7 @@ export const useCartStore = create<CartStore>()(
         get().items.reduce((acc, i) => acc + i.quantity, 0),
 
       totalPrice: () =>
-        get().items.reduce((acc, i) => acc + i.price * i.quantity, 0) +
-        get().items.reduce((acc, i) => acc + i.quantity, 0) * BAG_COST,
+        get().items.reduce((acc, i) => acc + i.price * i.quantity, 0) ,
     }),
     { name: 'avela-cart' }
   )

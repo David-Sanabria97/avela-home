@@ -6,12 +6,13 @@ import { useCartStore } from '@/store/cartStore'
 import Image from 'next/image'
 import Link from 'next/link'
 import ProductFilter, { FilterType } from '@/components/organisms/ProductFilter/ProductFilter'
+import { AROMAS } from '@/constants/aromas'
+
 import styles from './tienda.module.scss'
 import imgCorcho from '@/img/corcho.jpeg'
 import imgVidrio from '@/img/vidrio.jpeg'
 import imgBambu from '@/img/bambu.jpeg'
 
-const AROMAS = ['Talco', 'Frutos Rojos', 'Bambú', 'Cuero']
 
 const PRODUCTS = [
   {
@@ -167,15 +168,15 @@ const { addItem } = useCartStore()
               <div className={styles.aromasWrap}>
                 <span className={styles.aromaLabel}>Elige tu aroma</span>
                 <div className={styles.aromas}>
-                  {AROMAS.map((aroma) => (
-                    <button
-                      key={aroma}
-                      className={`${styles.aromaBtn} ${selectedAromas[product.id] === aroma ? styles.aromaActive : ''}`}
-                      onClick={() => selectAroma(product.id, aroma)}
-                    >
-                      {aroma}
-                    </button>
-                  ))}
+                {AROMAS.map((aroma) => (
+                <button
+                    key={aroma.id}
+                    className={`${styles.aromaBtn} ${selectedAromas[product.id] === aroma.id ? styles.aromaActive : ''}`}
+                    onClick={() => selectAroma(product.id, aroma.id)}
+                >
+                    {aroma.name}
+                </button>
+                ))}
                 </div>
               </div>
 

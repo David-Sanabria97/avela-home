@@ -17,6 +17,13 @@
   }
 }
 
+// ── Columna izquierda ─────────────────────────────────────────────────────────
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-6;
+}
+
 .imageWrap {
   position: relative;
   width: 100%;
@@ -63,6 +70,32 @@
   letter-spacing: 1px;
 }
 
+.descWrap {
+  padding: v.$space-6;
+  background: v.$cream2;
+  border: 1px solid v.$border-brown;
+}
+
+.descLabel {
+  font-family: v.$font-sans;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: v.$gold;
+  font-weight: 600;
+  display: block;
+  margin-bottom: v.$space-3;
+}
+
+.desc {
+  font-family: v.$font-sans;
+  font-size: 15px;
+  color: v.$text2;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+// ── Columna derecha ───────────────────────────────────────────────────────────
 .info {
   padding-top: v.$space-4;
 }
@@ -90,17 +123,48 @@
   margin-bottom: v.$space-6;
 }
 
-.desc {
-  font-family: v.$font-sans;
-  font-size: 15px;
-  color: v.$text2;
-  line-height: 1.8;
-  font-weight: 400;
-  margin-bottom: v.$space-8;
-  padding-bottom: v.$space-8;
-  border-bottom: 1px solid v.$border-brown;
+// ── Aroma dinámico ────────────────────────────────────────────────────────────
+.aromaDesc {
+  margin-bottom: v.$space-6;
 }
 
+.mood {
+  font-family: v.$font-serif;
+  font-style: italic;
+  font-size: 16px;
+  color: v.$brown;
+  padding-bottom: v.$space-4;
+  margin-bottom: v.$space-4;
+  border-bottom: 1px solid v.$border-gold;
+}
+
+.perfectFor {
+  font-family: v.$font-sans;
+  font-size: 16px;
+  color: v.$text2;
+  font-weight: 400;
+
+  span {
+    font-weight: 600;
+    color: v.$brown;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+}
+
+.aromaTagline {
+    font-family: v.$font-serif;
+    font-size: 18px;
+    font-style: italic;
+    color: v.$gold;
+    margin-bottom: v.$space-3;
+    font-weight: 300;
+    border-bottom: 1px solid v.$border-gold;
+    padding-bottom: v.$space-4;
+}
+
+// ── Features ──────────────────────────────────────────────────────────────────
 .features {
   display: flex;
   flex-direction: column;
@@ -128,8 +192,9 @@
   flex-shrink: 0;
 }
 
+// ── Selector de aroma ─────────────────────────────────────────────────────────
 .aromaSection {
-  margin-bottom: v.$space-8;
+  margin-bottom: v.$space-6;
 }
 
 .aromaTitle {
@@ -181,10 +246,98 @@
   }
 }
 
+// ── Contador de cantidad ──────────────────────────────────────────────────────
+.quantitySection {
+  display: flex;
+  align-items: center;
+  gap: v.$space-4;
+  margin-bottom: v.$space-6;
+  padding-bottom: v.$space-6;
+  border-bottom: 1px solid v.$border-brown;
+  flex-wrap: wrap;
+}
+
+.quantityLabel {
+  font-family: v.$font-sans;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: v.$brown;
+  font-weight: 600;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: v.$space-3;
+  border: 1px solid v.$border-brown;
+  padding: 6px 12px;
+}
+
+.qtyBtn {
+  font-family: v.$font-sans;
+  font-size: 18px;
+  color: v.$brown;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  font-weight: 300;
+
+  &:hover {
+    color: v.$gold;
+  }
+}
+
+.qtyNum {
+  font-family: v.$font-sans;
+  font-size: 16px;
+  font-weight: 500;
+  color: v.$brown;
+  min-width: 24px;
+  text-align: center;
+}
+
+.qtyTotal {
+  font-family: v.$font-serif;
+  font-size: 18px;
+  color: v.$gold;
+  font-weight: 300;
+  margin-left: auto;
+}
+
+// ── CTAs ──────────────────────────────────────────────────────────────────────
 .cta {
   display: flex;
   flex-direction: column;
   gap: v.$space-3;
+}
+
+.btnCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: v.$brown;
+  color: v.$cream;
+  padding: 16px 32px;
+  font-family: v.$font-sans;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: v.$transition;
+  width: 100%;
+
+  &:hover {
+    background: v.$gold;
+  }
 }
 
 .btnWa {

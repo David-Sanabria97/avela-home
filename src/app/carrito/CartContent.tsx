@@ -19,7 +19,6 @@ export default function CartContent() {
   const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCartStore()
 
   const subtotal = items.reduce((acc, i) => acc + i.price * i.quantity, 0)
-  const bagsCost = totalItems() * BAG_COST
   const whatsappUrl = buildCartWhatsAppUrl(items)
 
   if (items.length === 0) {
@@ -103,10 +102,7 @@ export default function CartContent() {
                 <span>Subtotal ({totalItems()} velas)</span>
                 <span>{formatPrice(subtotal)}</span>
               </div>
-              <div className={styles.summaryRow}>
-                <span>Bolsas regalo (x{totalItems()})</span>
-                <span>{formatPrice(bagsCost)}</span>
-              </div>
+             
               <div className={styles.summaryRow}>
                 <span>Envío</span>
                 <span className={styles.shipping}>A confirmar</span>
