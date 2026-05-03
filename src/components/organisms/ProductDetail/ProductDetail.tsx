@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./ProductDetail.module.scss";
 import { AROMAS, getAromaById } from "@/constants/aromas";
