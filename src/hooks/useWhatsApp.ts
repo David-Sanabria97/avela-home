@@ -23,7 +23,7 @@ export function buildCartWhatsAppUrl(items: CartItem[]): string {
     .join('\n')
 
   const message = [
-    '¡Hola Avela! 🕯️ Quiero hacer este pedido:',
+    '¡Hola Avela! Quiero hacer este pedido:',
     '',
     itemLines,
     '',

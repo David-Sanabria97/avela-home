@@ -6,7 +6,6 @@ import { useCartStore } from '@/store/cartStore'
 import Image from 'next/image'
 import Link from 'next/link'
 import ProductFilter, { FilterType } from '@/components/organisms/ProductFilter/ProductFilter'
-import { AROMAS } from '@/constants/aromas'
 
 import styles from './tienda.module.scss'
 import imgCorcho from '@/img/corcho.jpeg'
@@ -68,7 +67,6 @@ const { addItem } = useCartStore()
   const [activeFilter, setActiveFilter] = useState<FilterType>(filterParam ?? 'todas')
   const [selectedAromas, setSelectedAromas] = useState<Record<number, string>>({})
   const [wishlisted, setWishlisted] = useState<number[]>([])
-  const [added, setAdded] = useState<number[]>([])
 
   useEffect(() => {
     if (filterParam) setActiveFilter(filterParam)
@@ -98,8 +96,6 @@ const { addItem } = useCartStore()
     aroma,
     image: '',
   })
-  setAdded((prev) => [...prev, product.id])
-  setTimeout(() => setAdded((prev) => prev.filter((i) => i !== product.id)), 1800)
 }
 
 

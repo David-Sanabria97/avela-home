@@ -18,10 +18,10 @@ const CATEGORIES = [
   {
     id: 2,
     label: 'Colección',
-    name: 'Kits de Regalo',
+    name: 'Avela Kits',
     filter: 'kit',
     image: kit3Velas,
-    alt: 'Kits de regalo Avela',
+    alt: 'Avela Kits ',
   },
   {
     id: 3,

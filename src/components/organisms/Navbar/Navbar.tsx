@@ -19,7 +19,7 @@ const SUB_LINKS = [
   { label: 'Todas', filter: 'todas' },
   { label: 'Aromáticas', filter: 'aromatica' },
   { label: 'Masaje', filter: 'masaje' },
-  { label: 'Kits de regalo', filter: 'kit' },
+  { label: 'Avela Kits', filter: 'kit' },
 ]
 
 export default function Navbar() {
@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <header>
       <div className={styles.announce}>
-        Envío gratis en compras mayores a $120.000
+        Envío gratis en compras mayores a $220.000
       </div>
 
       <nav className={styles.nav}>

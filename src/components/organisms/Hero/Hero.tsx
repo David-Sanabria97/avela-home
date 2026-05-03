@@ -53,7 +53,7 @@ export default function Hero() {
           />
           <div className={styles.badge}>
             <div className={styles.badgeLabel}>Desde</div>
-            <div className={styles.badgeValue}>$35.000 COP</div>
+            <div className={styles.badgeValue}>$45.000 COP</div>
           </div>
         </div>
       </div>
