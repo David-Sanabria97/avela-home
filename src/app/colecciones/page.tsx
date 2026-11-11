@@ -3,8 +3,10 @@ import Collections from "@/components/organisms/Collections/Collections";
 import styles from "./Colecciones.module.scss";
 
 export const metadata: Metadata = {
-  title: "Colecciones — Avela Home",
-  description: "Seis colecciones de velas artesanales. Abre una y arma tu vela.",
+  title: "Colecciones de velas aromáticas",
+  description:
+    "Seis colecciones de velas aromáticas artesanales de soya: Nocturna, Aura, Serena, Alba, Origen y Ritual. Elige empaque y aroma y pide por WhatsApp con envío a toda Colombia.",
+  alternates: { canonical: "/colecciones" },
 };
 
 export default function ColeccionesPage() {

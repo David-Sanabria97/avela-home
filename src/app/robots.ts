@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { SITE } from "@/constants/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/carrito",
     },
-    sitemap: "https://www.avelahome.com.co/sitemap.xml",
+    sitemap: `${SITE.url}/sitemap.xml`,
+    host: SITE.url,
   };
 }

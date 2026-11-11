@@ -1,69 +1,30 @@
 import { MetadataRoute } from 'next'
 import { COLLECTIONS } from '@/constants/collections'
+import { PRODUCTS } from '@/constants/products'
+import { SITE } from '@/constants/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.avelahome.com.co'
+  const lastModified = new Date()
 
   return [
+    { url: SITE.url, lastModified, changeFrequency: 'weekly', priority: 1 },
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/colecciones`,
-      lastModified: new Date(),
+      url: `${SITE.url}/colecciones`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     ...COLLECTIONS.map((c) => ({
-      url: `${baseUrl}/colecciones/${c.id}`,
-      lastModified: new Date(),
+      url: `${SITE.url}/colecciones/${c.id}`,
+      lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     })),
-    {
-      url: `${baseUrl}/tienda`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/producto/vela-vidrio`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+    ...PRODUCTS.map((p) => ({
+      url: `${SITE.url}/producto/${p.slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/producto/vela-corcho`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/producto/vela-bambu`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/sobre-avela`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/contacto`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/carrito`,
-      lastModified: new Date(),
-      changeFrequency: 'never',
-      priority: 0.3,
-    },
+    })),
   ]
 }

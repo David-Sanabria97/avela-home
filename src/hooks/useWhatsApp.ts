@@ -51,5 +51,5 @@ export function buildCartWhatsAppUrl(items: CartItem[]): string {
 }
 
 export const WHOLESALE_WHATSAPP_URL = buildWhatsAppUrl(
-  '¡Hola Avela! Quiero comprar al por mayor para mi tienda o como regalo corporativo. ¿Me compartes la lista de precios?'
+  '¡Hola Avela! Quiero velas al por mayor (tienda, evento o regalo corporativo). ¿Me compartes la lista de precios?'
 )

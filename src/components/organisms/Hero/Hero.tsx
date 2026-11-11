@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.text}>
-        <span className={styles.kicker}>Vertidas a mano · Bogotá y Flandes, Colombia</span>
+        <span className={styles.kicker}>Velas artesanales de soya · Bogotá y Flandes</span>
         <h1 className={styles.title}>Velas que se quedan en la memoria.</h1>
         <p className={styles.lead}>
           Cera de soya, aromas de alta perfumería y empaques en vidrio, corcho o

@@ -7,11 +7,13 @@ export default function Wholesale() {
       <div className={styles.box}>
         <div className={styles.text}>
           <span className={styles.kicker}>
-            Para tiendas y regalos corporativos
+            Para tiendas, eventos y empresas
           </span>
-          <h2 className={styles.title}>Lleva Avela a tu vitrina.</h2>
+          <h2 className={styles.title}>Velas para tu tienda, evento o empresa.</h2>
           <p className={styles.desc}>
-            Pedidos por volumen con empaque y aroma a elección. Te enviamos la
+            Recordatorios para bodas, baby showers y eventos, regalos
+            corporativos y velas al por mayor para tu tienda, con empaque y
+            aroma a elección. Te enviamos la
             lista de precios por WhatsApp.
           </p>
         </div>

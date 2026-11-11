@@ -1,8 +1,13 @@
+import type { Metadata } from "next";
 import Hero from "@/components/organisms/Hero/Hero";
 import ExperienceBar from "@/components/organisms/ExperienceBar/ExperienceBar";
 import Collections from "@/components/organisms/Collections/Collections";
 import Wholesale from "@/components/organisms/Wholesale/Wholesale";
 import styles from "./page.module.scss";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

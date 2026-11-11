@@ -6,6 +6,9 @@ import CandleBuilder from "@/components/organisms/CandleBuilder/CandleBuilder";
 import Collections from "@/components/organisms/Collections/Collections";
 import { COLLECTIONS, getCollectionById } from "@/constants/collections";
 import { getAromaById } from "@/constants/aromas";
+import { EMPAQUES } from "@/constants/products";
+import { SITE } from "@/constants/site";
+import JsonLd from "@/components/atoms/JsonLd/JsonLd";
 import styles from "./Coleccion.module.scss";
 
 interface Props {
@@ -16,12 +19,25 @@ export function generateStaticParams() {
   return COLLECTIONS.map((c) => ({ id: c.id }));
 }
 
+function aromaNames(ids: string[]) {
+  return ids.map((id) => getAromaById(id)?.name ?? id);
+}
+
 export function generateMetadata({ params }: Props): Metadata {
   const collection = getCollectionById(params.id);
   if (!collection) return {};
+  const title = `Velas aromáticas colección ${collection.name}`;
+  const description = `${collection.tagline} Velas artesanales de soya con aroma ${aromaNames(collection.aromas).join(", ")}. Elige vidrio, corcho o bambú y pide por WhatsApp con envío a toda Colombia.`;
   return {
-    title: `Colección ${collection.name} — Avela Home`,
-    description: `${collection.tagline} ${collection.description}`,
+    title,
+    description,
+    alternates: { canonical: `/colecciones/${collection.id}` },
+    openGraph: {
+      title,
+      description,
+      url: `/colecciones/${collection.id}`,
+      images: [{ url: collection.image.src, alt: `Velas Avela, colección ${collection.name}` }],
+    },
   };
 }
 
@@ -30,12 +46,42 @@ export default function ColeccionPage({ params }: Props) {
   if (!collection) notFound();
 
   const num = String(COLLECTIONS.indexOf(collection) + 1).padStart(2, "0");
-  const aromaList = collection.aromas
-    .map((id) => getAromaById(id)?.name ?? id)
-    .join(" · ");
+  const aromaList = aromaNames(collection.aromas).join(" · ");
+  const prices = EMPAQUES.map((e) => e.price);
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `Vela aromática Avela — colección ${collection.name}`,
+    description: `${collection.tagline} ${collection.description}`,
+    image: `${SITE.url}${collection.image.src}`,
+    brand: { "@type": "Brand", name: SITE.name },
+    material: "Cera de soya",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "COP",
+      lowPrice: Math.min(...prices),
+      highPrice: Math.max(...prices),
+      offerCount: EMPAQUES.length,
+      availability: "https://schema.org/InStock",
+      url: `${SITE.url}/colecciones/${collection.id}`,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE.url },
+      { "@type": "ListItem", position: 2, name: "Colecciones", item: `${SITE.url}/colecciones` },
+      { "@type": "ListItem", position: 3, name: collection.name, item: `${SITE.url}/colecciones/${collection.id}` },
+    ],
+  };
 
   return (
     <main>
+      <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <div className={styles.wrap}>
         <Link href="/#colecciones" className={styles.back}>
           ← Todas las colecciones
