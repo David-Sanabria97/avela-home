@@ -1,50 +1,49 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./Collections.module.scss";
 import { COLLECTIONS } from "@/constants/collections";
 
-export default function Collections() {
-  const router = useRouter();
+interface CollectionsProps {
+  /** Colección a excluir (en la página de una colección: "Otras colecciones"). */
+  exclude?: string;
+  compact?: boolean;
+}
+
+export default function Collections({ exclude, compact = false }: CollectionsProps) {
+  const list = COLLECTIONS.filter((c) => c.id !== exclude);
 
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <div className={styles.head}>
-          <span className={styles.eyebrow}>Nuestras colecciones</span>
-          <h2 className={styles.title}>
-            Aromas que cuentan <em>historias</em>
-          </h2>
-        </div>
-
-        <div className={styles.grid}>
-          {COLLECTIONS.map((col) => (
-            <div
-              key={col.id}
-              className={styles.card}
-              onClick={() =>
-                router.push(`/producto/vela-vidrio?coleccion=${col.id}`)
+    <ul className={compact ? styles.gridCompact : styles.grid}>
+      {list.map((col) => (
+        <li key={col.id} className={styles.item}>
+          <Link href={`/colecciones/${col.id}`} className={styles.card}>
+            <Image
+              src={col.image}
+              alt=""
+              className={styles.image}
+              sizes={
+                compact
+                  ? "(max-width: 640px) 50vw, 220px"
+                  : "(max-width: 640px) 100vw, 360px"
               }
-            >
-              <div className={styles.cardImg}>
-                <Image
-                  src={col.image}
-                  alt={col.name}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <div className={styles.cardOverlay} />
-              <div className={styles.cardBody}>
-                <span className={styles.cardName}>{col.name}</span>
-                <p className={styles.cardTagline}>{col.tagline}</p>
-                <span className={styles.cardLink}>Ver colección →</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+            />
+            {compact ? (
+              <span className={styles.nameCompact}>{col.name}</span>
+            ) : (
+              <>
+                <span className={styles.row}>
+                  <span className={styles.name}>{col.name}</span>
+                  <span className={styles.count}>
+                    {col.aromas.length} aromas
+                  </span>
+                </span>
+                <span className={styles.tagline}>{col.tagline}</span>
+                <span className={styles.cta}>Arma tu vela →</span>
+              </>
+            )}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

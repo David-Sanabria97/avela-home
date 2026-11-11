@@ -1,0 +1,304 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.builder {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  border-top: 1px solid v.$divider;
+  border-bottom: 1px solid v.$divider;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Pasos ─────────────────────────────────────────────────────────────────────
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 36px 40px 40px 0;
+
+  @include m.lg {
+    padding: 24px 0 28px;
+    gap: 24px;
+  }
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-family: v.$font-serif;
+  font-size: m.fluid(32, 44);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.subtitle {
+  font: 14px v.$font-body;
+  color: v.$text2;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+
+.stepTitle {
+  padding: 0;
+  margin-bottom: 12px;
+  font: 600 19px v.$font-serif;
+}
+
+.stepNum {
+  color: v.$accent-700;
+}
+
+.tagline {
+  font: italic 14px v.$font-body;
+  color: v.$text2;
+}
+
+@mixin selectable {
+  border: 1px solid v.$divider;
+  background: transparent;
+  color: v.$text;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    border-color: rgba(32, 31, 29, 0.45);
+  }
+
+  &[aria-pressed="true"] {
+    border-color: v.$gold;
+    background: v.$gold-pale;
+    color: v.$accent-800;
+  }
+}
+
+.empaques {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  @include m.sm {
+    gap: 8px;
+  }
+}
+
+.empaque {
+  @include selectable;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 8px 12px;
+  border-radius: v.$radius;
+  text-align: left;
+
+  @include m.sm {
+    gap: 4px;
+    padding: 5px 5px 8px;
+  }
+}
+
+.empaqueImg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: sepia(0.18) saturate(0.85);
+
+  @include m.sm {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.empaqueRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 8px;
+  padding: 0 4px;
+
+  @include m.sm {
+    flex-direction: column;
+    padding: 0 2px;
+  }
+}
+
+.empaqueName {
+  font: 600 21px v.$font-serif;
+
+  @include m.sm {
+    font-size: 16px;
+  }
+}
+
+.empaquePrice {
+  font: 600 17px v.$font-serif;
+  font-variant-numeric: tabular-nums;
+
+  @include m.sm {
+    font: 11px v.$font-body;
+  }
+}
+
+.empaqueDur {
+  padding: 0 4px;
+  font: 12px v.$font-body;
+  color: v.$text2;
+
+  @include m.sm {
+    display: none;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  @include selectable;
+  padding: 7px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font: 600 16px v.$font-serif;
+}
+
+.toggle {
+  padding: 7px 6px;
+  font: 600 15px v.$font-serif;
+  color: v.$accent-700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.qtyRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid v.$divider;
+  border-radius: v.$radius;
+  font: 600 20px v.$font-serif;
+
+  button {
+    padding: 8px 16px;
+    font: inherit;
+    color: inherit;
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    min-width: 40px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.bulk {
+  font: 13px v.$font-body;
+  color: v.$accent-700;
+}
+
+// ── Resumen / mensaje ─────────────────────────────────────────────────────────
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px 0 36px 28px;
+  border-left: 1px solid v.$divider;
+
+  @include m.lg {
+    padding: 24px 0 28px;
+    border-left: 0;
+    border-top: 1px solid v.$divider;
+  }
+}
+
+.summaryLabel {
+  font: 500 11px v.$font-body;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: v.$text2;
+}
+
+.message {
+  padding: 16px;
+  background: v.$cream2;
+  border: 1px solid v.$divider;
+  border-radius: 14px 14px 4px 14px;
+  font: 13.5px/1.55 v.$font-body;
+  white-space: pre-wrap;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid v.$divider;
+  font: 600 24px v.$font-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.send {
+  @include m.btn-outline(19px);
+  padding: 14px;
+}
+
+// En escritorio el total ya está arriba; en celular va dentro del botón.
+.sendTotal {
+  display: none;
+  font-variant-numeric: tabular-nums;
+}
+
+@include m.lg {
+  .total {
+    display: none;
+  }
+
+  .send {
+    justify-content: space-between;
+    padding: 14px 18px;
+  }
+
+  .sendTotal {
+    display: inline;
+  }
+}
+
+.addCart {
+  align-self: center;
+  font: 600 16px v.$font-serif;
+  color: v.$accent-700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.note {
+  text-align: center;
+  font: 12px v.$font-body;
+  color: v.$text2;
+}

@@ -1,156 +1,34 @@
 @use "variables" as v;
 @use "mixins" as m;
 
-// ── Page Header ───────────────────────────────────────────────────────────────
-.pageHeader {
-  background: v.$brown;
-  padding: 40px;
-  text-align: center;
+.page {
+  @include m.container;
+  padding-block: 48px 56px;
 
   @include m.md {
-    padding: 40px;
+    padding-block: 24px 32px;
   }
 }
 
-.pageHeaderInner {
-  @include m.container;
-  padding-inline: 0;
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 32px;
 }
 
-.eyebrow {
-  @include m.eyebrow;
-  color: v.$gold;
-  display: block;
-  margin-bottom: v.$space-3;
+.kicker {
+  @include m.kicker;
 }
 
 .title {
   font-family: v.$font-serif;
-  font-size: m.fluid(36, 56);
-  font-weight: 300;
-  color: v.$cream;
-  line-height: 1.1;
-  margin-bottom: v.$space-4;
-
-  em {
-    font-style: italic;
-    color: v.$gold2;
-  }
+  font-size: m.fluid(38, 56);
+  font-weight: 400;
+  line-height: 1.05;
 }
 
 .subtitle {
-  font-family: v.$font-sans;
-  font-size: 15px;
-  color: rgba(250, 248, 245, 0.55);
-  font-weight: 300;
-  max-width: 400px;
-  margin-inline: auto;
-}
-
-// ── Grid ──────────────────────────────────────────────────────────────────────
-.section {
-  @include m.container;
-  padding-block: v.$space-12;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-
-  @include m.lg {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include m.sm {
-    grid-template-columns: 1fr;
-  }
-}
-
-// ── Card ──────────────────────────────────────────────────────────────────────
-.card {
-  cursor: pointer;
-
-  &:hover .imageWrap img {
-    transform: scale(1.05);
-  }
-
-  &:hover .overlay {
-    background: rgba(26, 16, 8, 0.65);
-  }
-
-  &:hover .cardLink {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.imageWrap {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  background: v.$cream2;
-
-  img {
-    transition: transform 0.6s ease;
-  }
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 16, 8, 0.45);
-  transition: background 0.3s ease;
-}
-
-.cardBody {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 28px 24px;
-  z-index: 2;
-}
-
-.cardName {
-  font-family: v.$font-sans;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #fff;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.cardTagline {
-  font-family: v.$font-serif;
-  font-size: 22px;
-  font-weight: 300;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-
-.cardAromas {
-  font-family: v.$font-sans;
-  font-size: 11px;
-  color: rgba(250, 248, 245, 0.6);
-  font-weight: 300;
-  margin-bottom: 14px;
-}
-
-.cardLink {
-  font-family: v.$font-sans;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: v.$gold2;
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-  display: block;
+  font: 14px/1.5 v.$font-body;
+  color: v.$text2;
 }

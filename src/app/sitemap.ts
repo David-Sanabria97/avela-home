@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { COLLECTIONS } from '@/constants/collections'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.avelahome.com.co'
@@ -16,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    ...COLLECTIONS.map((c) => ({
+      url: `${baseUrl}/colecciones/${c.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    })),
     {
       url: `${baseUrl}/tienda`,
       lastModified: new Date(),

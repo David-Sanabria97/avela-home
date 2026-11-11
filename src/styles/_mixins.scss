@@ -89,3 +89,45 @@
 @function fluid($min, $max) {
   @return clamp(#{$min}px, #{$min * 0.5}px + 4vw, #{$max}px);
 }
+
+// ── Classical (mockup 2a) ─────────────────────────────────────────────────────
+// Foto tratada como lámina: tono sepia, marco de papel y hairline.
+@mixin plate($frame: 6px) {
+  filter: sepia(0.22) saturate(0.82) contrast(1.05);
+  border: $frame solid v.$cream2;
+  outline: 1px solid v.$divider;
+}
+
+@mixin kicker {
+  font-family: v.$font-body;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: v.$accent-700;
+}
+
+// Botón en contorno del sistema Classical.
+@mixin btn-outline($size: 18px) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid v.$gold;
+  border-radius: v.$radius;
+  background: transparent;
+  color: v.$accent-700;
+  font: 600 #{$size} v.$font-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(182, 130, 53, 0.12);
+  }
+
+  &:active {
+    background: rgba(182, 130, 53, 0.22);
+  }
+}

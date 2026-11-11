@@ -1,31 +1,38 @@
 // src/styles/_variables.scss
+// Sistema "Classical" (mockup 2a): fondo papel, tinta, acento ocre, hairlines.
 
 // ── Colores ───────────────────────────────────────────────────────────────────
-$cream: #faf8f5;
-$cream2: #f3efe8;
-$cream3: #ede8df;
+$cream: #f3f2f2; // fondo
+$cream2: #eae9e9; // superficie (marco de láminas, globo de mensaje)
+$cream3: #d7d3d3;
 
-$gold: #b8935a;
-$gold2: #cda876;
-$gold-pale: #f0e6d3;
+$gold: #b68235; // acento (bordes de botones en contorno)
+$gold2: #c28d41;
+$gold-pale: #fff3e4; // acento-100 (seleccionado)
 
-$brown: #2c1f10;
-$brown2: #5c4433;
-$brown3: #8c7060;
+$brown: #201f1d;
+$brown2: #444141;
+$brown3: #605d5d;
 
-$text: #1e1410;
-$text2: #7a6b5a;
+$text: #201f1d;
+$text2: #605d5d; // neutral-700, texto secundario
+
+$accent-700: #7d5411; // texto en acento (pasa 4.5:1)
+$accent-800: #5a3b0a;
+$neutral-800: #444141;
 
 $green: #3d6b4f;
 $whatsapp: #25d366;
 
 // ── Bordes ────────────────────────────────────────────────────────────────────
-$border-gold: rgba(184, 147, 90, 0.15);
-$border-brown: rgba(44, 31, 16, 0.08);
+$divider: rgba(32, 31, 29, 0.16);
+$border-gold: rgba(182, 130, 53, 0.15);
+$border-brown: rgba(32, 31, 29, 0.08);
 
 // ── Tipografía ────────────────────────────────────────────────────────────────
-$font-serif: 'Cormorant Garamond', Georgia, serif;
-$font-sans: 'Jost', system-ui, sans-serif;
+$font-serif: var(--font-cormorant), Georgia, serif;
+$font-body: var(--font-lora), Georgia, serif;
+$font-sans: $font-body;
 
 // ── Espaciado ─────────────────────────────────────────────────────────────────
 $space-1: 4px;
@@ -42,18 +49,21 @@ $space-20: 80px;
 
 // ── Layout ────────────────────────────────────────────────────────────────────
 $container-max: 1200px;
-$container-px: 40px;
+$container-px: 56px;
 
 // ── Breakpoints ───────────────────────────────────────────────────────────────
 $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 
+// ── Radios ────────────────────────────────────────────────────────────────────
+$radius: 4px;
+
 // ── Transiciones ──────────────────────────────────────────────────────────────
 $transition: all 0.25s ease;
 $transition-img: transform 0.5s ease;
 
 // ── Sombras ───────────────────────────────────────────────────────────────────
-$shadow-sm: 0 4px 16px rgba(44, 31, 16, 0.06);
-$shadow-md: 0 8px 32px rgba(44, 31, 16, 0.1);
-$shadow-lg: 0 20px 60px rgba(44, 31, 16, 0.12);
+$shadow-sm: 0 1px 2px rgba(45, 43, 43, 0.14);
+$shadow-md: 0 3px 10px rgba(45, 43, 43, 0.16);
+$shadow-lg: 0 12px 32px rgba(45, 43, 43, 0.22);

@@ -1,0 +1,98 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.wrap {
+  @include m.container;
+}
+
+.back {
+  display: inline-block;
+  padding-top: 22px;
+  font: 600 16px v.$font-serif;
+  color: v.$accent-700;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+  padding-block: 28px 44px;
+
+  @include m.lg {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-block: 14px 24px;
+
+    .image {
+      order: -1;
+      aspect-ratio: 16 / 10;
+    }
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include m.lg {
+    gap: 8px;
+  }
+}
+
+.kicker {
+  @include m.kicker;
+}
+
+.title {
+  font-family: v.$font-serif;
+  font-size: m.fluid(40, 72);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.mood {
+  font: italic 18px v.$font-body;
+  color: v.$neutral-800;
+
+  @include m.md {
+    font-size: 14px;
+  }
+}
+
+.desc {
+  max-width: 440px;
+  font: 15px/1.65 v.$font-body;
+  text-align: justify;
+  color: v.$text2;
+}
+
+.image {
+  @include m.plate;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.others {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-block: 44px 48px;
+
+  @include m.md {
+    padding-block: 32px;
+  }
+}
+
+.othersTitle {
+  font: 600 22px v.$font-serif;
+}

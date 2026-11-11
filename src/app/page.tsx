@@ -1,19 +1,22 @@
 import Hero from "@/components/organisms/Hero/Hero";
-//import CategoryStrip from '@/components/organisms/CategoryStrip/CategoryStrip'
 import ExperienceBar from "@/components/organisms/ExperienceBar/ExperienceBar";
 import Collections from "@/components/organisms/Collections/Collections";
-import AboutSection from "@/components/organisms/AboutSection/AboutSection";
-import Testimonials from "@/components/organisms/Testimonials/Testimonials";
-//import Newsletter from '@/components/organisms/Newsletter/Newsletter'
+import Wholesale from "@/components/organisms/Wholesale/Wholesale";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <main>
       <Hero />
       <ExperienceBar />
-      <Collections />
-      <Testimonials />
-      <AboutSection />
+      <section id="colecciones" className={styles.collections}>
+        <div className={styles.head}>
+          <h2 className={styles.title}>Colecciones</h2>
+          <span className={styles.hint}>Abre una y arma tu vela</span>
+        </div>
+        <Collections />
+      </section>
+      <Wholesale />
     </main>
   );
 }

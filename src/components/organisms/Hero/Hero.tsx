@@ -1,40 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroImg from "@/img/Hero.jpeg";
-
+import { COLLECTIONS } from "@/constants/collections";
 import styles from "./Hero.module.scss";
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.image}>
-        <div className={styles.left}>
-          <h1 className={styles.title}>
-            Transforma
-            <br />
-            tu espacio en
-            <br />
-            un <em>ritual.</em>
-          </h1>
-
-          <div className={styles.line} />
-
-          <p className={styles.subtitle}>
-            Velas artesanales que despiertan emociones y crean momentos únicos.
-          </p>
-
-          <Link href="/colecciones" className={styles.btn}>
-            Descubrir colección →
+      <div className={styles.text}>
+        <span className={styles.kicker}>Vertidas a mano · Bogotá y Flandes, Colombia</span>
+        <h1 className={styles.title}>Velas que se quedan en la memoria.</h1>
+        <p className={styles.lead}>
+          Cera de soya, aromas de alta perfumería y empaques en vidrio, corcho o
+          bambú. Cada vela se vierte a mano en pequeños lotes para que el aroma
+          acompañe sin invadir.
+        </p>
+        <div className={styles.actions}>
+          <Link href={`/colecciones/${COLLECTIONS[0].id}`} className={styles.primary}>
+            Arma tu vela
+          </Link>
+          <Link href="/#colecciones" className={styles.secondary}>
+            Conoce las colecciones
           </Link>
         </div>
-        <Image
-          src={HeroImg}
-          alt="Vela Avela encendida"
-          fill
-          priority
-          style={{ objectFit: "cover" }}
-        />
       </div>
+      <Image
+        src={HeroImg}
+        alt="Velas Avela encendidas"
+        className={styles.image}
+        sizes="(max-width: 1024px) 100vw, 600px"
+        priority
+      />
     </section>
   );
 }

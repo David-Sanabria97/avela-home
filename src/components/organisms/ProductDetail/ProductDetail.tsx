@@ -81,7 +81,7 @@ export default function ProductDetail({
   const FEATURES = [
     "70% cera de soya · 30% parafina premium",
     "Bolsa de regalo incluida",
-    "Ibagué, Colombia",
+    "Hecha en Bogotá y Flandes, Colombia",
     `Quema limpia y pareja aproximadamente ${selectedEmpaque.timeDuration}`,
   ];
   return (
