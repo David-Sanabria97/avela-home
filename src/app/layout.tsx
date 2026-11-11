@@ -4,6 +4,7 @@ import './globals.scss'
 import Navbar from '@/components/organisms/Navbar/Navbar'
 import Footer from '@/components/organisms/Footer/Footer'
 import WhatsAppButton from '@/components/atoms/WhatsAppButton/WhatsAppButton'
+import { Analytics } from '@vercel/analytics/next'
 import JsonLd from '@/components/atoms/JsonLd/JsonLd'
 import { SITE } from '@/constants/site'
 import { EMPAQUES } from '@/constants/products'
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   )
