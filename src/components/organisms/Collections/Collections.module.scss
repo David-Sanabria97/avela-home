@@ -92,3 +92,13 @@
   font: 600 16px v.$font-serif;
   color: v.$accent-700;
 }
+
+// Color de la región, solo como acento.
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: 0.15em;
+}

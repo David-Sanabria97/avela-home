@@ -87,9 +87,13 @@ export default function ColeccionPage({ params }: Props) {
           ← Todas las colecciones
         </Link>
 
-        <header className={styles.header}>
+        <header
+          className={styles.header}
+          style={{ "--region": collection.color } as React.CSSProperties}
+        >
           <div className={styles.text}>
             <span className={styles.kicker}>
+              <span className={styles.dot} aria-hidden="true" />
               Colección {num} · {collection.aromas.length} aromas
             </span>
             <h1 className={styles.title}>{collection.name}</h1>

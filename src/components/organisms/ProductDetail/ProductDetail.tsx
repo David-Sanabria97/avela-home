@@ -151,6 +151,9 @@ export default function ProductDetail({
               <p className={styles.perfectFor}>
                 <span>Perfecta para:</span> {selectedAroma.perfect_for}
               </p>
+              <p className={styles.perfectFor}>
+                <span>Notas:</span> {selectedAroma.notas.join(" · ")}
+              </p>
               <p className={styles.aromaTagline}>{selectedAroma.tagline}</p>
               <p className={styles.desc}>{selectedAroma.description}</p>
             </div>

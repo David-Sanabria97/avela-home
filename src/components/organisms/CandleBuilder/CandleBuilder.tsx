@@ -118,6 +118,7 @@ export default function CandleBuilder({ collectionId }: CandleBuilderProps) {
             <span className={styles.stepNum}>2 ·</span> Aroma: {aroma.name}{" "}
             <span className={styles.tagline}>— {aroma.tagline}</span>
           </legend>
+          <p className={styles.notas}>Notas: {aroma.notas.join(" · ")}</p>
           <div className={styles.chips}>
             {aromas.map((a) => (
               <button

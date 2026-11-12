@@ -5,7 +5,7 @@ import styles from "./Colecciones.module.scss";
 export const metadata: Metadata = {
   title: "Colecciones de velas aromáticas",
   description:
-    "Seis colecciones de velas aromáticas artesanales de soya: Nocturna, Aura, Serena, Alba, Origen y Ritual. Elige empaque y aroma y pide por WhatsApp con envío a toda Colombia.",
+    "Seis colecciones de velas aromáticas artesanales inspiradas en las regiones de Colombia: Sabana, Caribe, Amazonía, Paisa, Pacífico y Llanos. Elige empaque y aroma y pide por WhatsApp con envío a toda Colombia.",
   alternates: { canonical: "/colecciones" },
 };
 
