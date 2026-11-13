@@ -5,7 +5,7 @@ export interface Aroma {
   description: string;
   perfect_for: string;
   mood: string;
-  /** Mezcla de fragancias; se muestra como «Notas: Eucalipto 40% · Pino 30% · …». */
+  /** Mezcla de fragancias; el porcentaje es interno; la web muestra solo «Notas: Eucalipto · Pino · …». */
   notas: { nota: string; porcentaje: number }[];
 }
 
@@ -280,5 +280,5 @@ export function getAromaById(id: string): Aroma | undefined {
 }
 
 export function formatNotas(aroma: Aroma): string {
-  return aroma.notas.map((n) => `${n.nota} ${n.porcentaje}%`).join(" · ");
+  return aroma.notas.map((n) => n.nota).join(" · ");
 }
