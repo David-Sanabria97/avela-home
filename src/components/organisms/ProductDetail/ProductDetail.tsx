@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./ProductDetail.module.scss";
-import { AROMAS, getAromaById } from "@/constants/aromas";
+import { AROMAS, formatNotas, getAromaById } from "@/constants/aromas";
 import { useCartStore } from "@/store/cartStore";
 import type { Product } from "@/constants/products";
 import { COLLECTIONS, getCollectionById } from "@/constants/collections";
@@ -150,6 +150,9 @@ export default function ProductDetail({
               <p className={styles.mood}>&ldquo;{selectedAroma.mood}&rdquo;</p>
               <p className={styles.perfectFor}>
                 <span>Perfecta para:</span> {selectedAroma.perfect_for}
+              </p>
+              <p className={styles.perfectFor}>
+                <span>Notas:</span> {formatNotas(selectedAroma)}
               </p>
               <p className={styles.aromaTagline}>{selectedAroma.tagline}</p>
               <p className={styles.desc}>{selectedAroma.description}</p>

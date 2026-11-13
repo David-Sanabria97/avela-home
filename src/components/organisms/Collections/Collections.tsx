@@ -28,11 +28,17 @@ export default function Collections({ exclude, compact = false }: CollectionsPro
               }
             />
             {compact ? (
-              <span className={styles.nameCompact}>{col.name}</span>
+              <span className={styles.nameCompact}>
+                <span className={styles.dot} style={{ background: col.color }} aria-hidden="true" />
+                {col.name}
+              </span>
             ) : (
               <>
                 <span className={styles.row}>
-                  <span className={styles.name}>{col.name}</span>
+                  <span className={styles.name}>
+                    <span className={styles.dot} style={{ background: col.color }} aria-hidden="true" />
+                    {col.name}
+                  </span>
                   <span className={styles.count}>
                     {col.aromas.length} aromas
                   </span>

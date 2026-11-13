@@ -67,6 +67,12 @@
   color: v.$text2;
 }
 
+.notas {
+  margin-top: -8px;
+  font: 13px v.$font-body;
+  color: v.$text2;
+}
+
 @mixin selectable {
   border: 1px solid v.$divider;
   background: transparent;

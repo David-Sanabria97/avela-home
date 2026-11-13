@@ -96,3 +96,23 @@
 .othersTitle {
   font: 600 22px v.$font-serif;
 }
+
+// Color de la región (variable --region en el header), solo como acento.
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--region);
+  vertical-align: 0.05em;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 16px;
+  background: var(--region);
+}
