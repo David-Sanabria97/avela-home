@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./CandleBuilder.module.scss";
-import { AROMAS, getAromaById } from "@/constants/aromas";
+import { AROMAS, formatNotas, getAromaById } from "@/constants/aromas";
 import { getCollectionById } from "@/constants/collections";
 import { EMPAQUES, PRODUCTS } from "@/constants/products";
 import { useCartStore } from "@/store/cartStore";
@@ -118,7 +118,7 @@ export default function CandleBuilder({ collectionId }: CandleBuilderProps) {
             <span className={styles.stepNum}>2 ·</span> Aroma: {aroma.name}{" "}
             <span className={styles.tagline}>— {aroma.tagline}</span>
           </legend>
-          <p className={styles.notas}>Notas: {aroma.notas.join(" · ")}</p>
+          <p className={styles.notas}>Notas: {formatNotas(aroma)}</p>
           <div className={styles.chips}>
             {aromas.map((a) => (
               <button
