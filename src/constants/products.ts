@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
-import imgCorcho from "@/img/corcho.jpeg";
+// Provisional: la foto de Açaí se usa como foto general del corcho mientras llegan las demás.
+import imgCorcho from "@/img/aromas/vela-corcho/acai.jpeg";
 import imgVidrio from "@/img/vidrio.jpeg";
 import imgBambu from "@/img/bambu.jpeg";
 
