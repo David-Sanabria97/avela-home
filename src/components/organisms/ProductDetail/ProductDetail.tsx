@@ -1,89 +1,77 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import styles from "./ProductDetail.module.scss";
-import { AROMAS, formatNotas, getAromaById } from "@/constants/aromas";
-import { useCartStore } from "@/store/cartStore";
-import type { Product } from "@/constants/products";
-import { COLLECTIONS, getCollectionById } from "@/constants/collections";
-import { EMPAQUES } from "@/constants/products";
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import styles from './ProductDetail.module.scss'
+import { AROMAS, formatNotas, getAromaById } from '@/constants/aromas'
+import { useCartStore } from '@/store/cartStore'
+import type { Product } from '@/constants/products'
+import { COLLECTIONS, getCollectionById } from '@/constants/collections'
+import { EMPAQUES } from '@/constants/products'
+import { getVelaImage } from '@/constants/aromaImages'
 
 function formatPrice(amount: number) {
-  return new Intl.NumberFormat("es-CO", {
-    style: "currency",
-    currency: "COP",
+  return new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
     minimumFractionDigits: 0,
-  }).format(amount);
+  }).format(amount)
 }
 
 interface ProductDetailProps {
-  product: Product;
-  coleccionParam?: string;
+  product: Product
+  coleccionParam?: string
 }
 
-export default function ProductDetail({
-  product,
-  coleccionParam,
-}: ProductDetailProps) {
-  const { addItem } = useCartStore();
-  const router = useRouter();
+export default function ProductDetail({ product, coleccionParam }: ProductDetailProps) {
+  const { addItem } = useCartStore()
+  const router = useRouter()
 
-  const initialCollection =
-    getCollectionById(coleccionParam ?? "") ?? COLLECTIONS[0];
-  const [selectedCollection, setSelectedCollection] =
-    useState(initialCollection);
+  const initialCollection = getCollectionById(coleccionParam ?? '') ?? COLLECTIONS[0]
+  const [selectedCollection, setSelectedCollection] = useState(initialCollection)
 
   const [selectedEmpaque, setSelectedEmpaque] = useState(
-    EMPAQUES.find((e) => e.id === product.slug) ?? EMPAQUES[0],
-  );
-  const [added, setAdded] = useState(false);
-  const [selectedAromaId, setSelectedAromaId] = useState(
-    initialCollection.aromas[0],
-  );
-  const [quantity, setQuantity] = useState(1);
+    EMPAQUES.find((e) => e.id === product.slug) ?? EMPAQUES[0]
+  )
+  const [added, setAdded] = useState(false)
+  const [selectedAromaId, setSelectedAromaId] = useState(initialCollection.aromas[0])
+  const [quantity, setQuantity] = useState(1)
 
-  const selectedAroma = getAromaById(selectedAromaId);
+  const selectedAroma = getAromaById(selectedAromaId)
+  const productImage = getVelaImage(selectedEmpaque.id, selectedAromaId, product.image)
 
-  const aromasDeColeccion = AROMAS.filter((a) =>
-    selectedCollection.aromas.includes(a.id),
-  );
+  const aromasDeColeccion = AROMAS.filter((a) => selectedCollection.aromas.includes(a.id))
 
   function handleEmpaqueChange(empaqueId: string) {
-    const empaque = EMPAQUES.find((e) => e.id === empaqueId);
-    if (!empaque) return;
-    setSelectedEmpaque(empaque);
-    router.push(`/producto/${empaqueId}?coleccion=${selectedCollection.id}`);
+    const empaque = EMPAQUES.find((e) => e.id === empaqueId)
+    if (!empaque) return
+    setSelectedEmpaque(empaque)
+    router.push(`/producto/${empaqueId}?coleccion=${selectedCollection.id}`)
   }
   function handleAddToCart() {
     addItem(
       {
-        id:
-          selectedEmpaque.id === "vela-vidrio"
-            ? 2
-            : selectedEmpaque.id === "vela-corcho"
-              ? 1
-              : 3,
+        id: selectedEmpaque.id === 'vela-vidrio' ? 2 : selectedEmpaque.id === 'vela-corcho' ? 1 : 3,
         slug: selectedEmpaque.id,
         name: `${selectedEmpaque.name} — ${selectedCollection.name}`,
         price: selectedEmpaque.price,
         aroma: selectedAroma?.name ?? selectedAromaId,
-        image: "",
+        image: productImage.src,
       },
-      quantity,
-    );
-    setAdded(true);
-    setTimeout(() => setAdded(false), 500);
+      quantity
+    )
+    setAdded(true)
+    setTimeout(() => setAdded(false), 500)
   }
 
   const FEATURES = [
-    "70% cera de soya · 30% parafina premium",
-    "Bolsa de regalo incluida",
-    "Hecha en Bogotá y Flandes, Colombia",
+    '70% cera de soya · 30% parafina premium',
+    'Bolsa de regalo incluida',
+    'Hecha en Bogotá y Flandes, Colombia',
     `Quema limpia y pareja aproximadamente ${selectedEmpaque.timeDuration}`,
-  ];
+  ]
   return (
     <>
       <div className={styles.pageHeader}>
@@ -92,9 +80,7 @@ export default function ProductDetail({
             Colecciones
           </Link>
           <span className={styles.breadcrumbSep}>·</span>
-          <span className={styles.breadcrumbCurrent}>
-            {selectedCollection.name}
-          </span>
+          <span className={styles.breadcrumbCurrent}>{selectedCollection.name}</span>
         </div>
       </div>
 
@@ -103,12 +89,14 @@ export default function ProductDetail({
         <div className={styles.leftCol}>
           <div className={styles.imageWrap}>
             <Image
-              src={product.image}
-              alt={`Vela ${selectedEmpaque.name}`}
+              key={productImage.src}
+              src={productImage}
+              alt={`Vela ${selectedEmpaque.name}${selectedAroma ? ` aroma ${selectedAroma.name}` : ''}`}
+              placeholder="blur"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: "cover", objectPosition: "center" }}
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
             <div className={styles.bagNote}>
               <svg
@@ -135,15 +123,11 @@ export default function ProductDetail({
 
         {/* Columna derecha */}
         <div className={styles.info}>
-          <span className={styles.eyebrow}>
-            Colección {selectedCollection.name} · Avela Home
-          </span>
+          <span className={styles.eyebrow}>Colección {selectedCollection.name} · Avela Home</span>
           <h1 className={styles.name}>
             {selectedAroma?.name} - {selectedEmpaque.name}
           </h1>
-          <div className={styles.price}>
-            {formatPrice(selectedEmpaque.price)}
-          </div>
+          <div className={styles.price}>{formatPrice(selectedEmpaque.price)}</div>
           <span className={styles.stock}>{selectedCollection.description}</span>
           {selectedAroma && (
             <div className={styles.aromaDesc}>
@@ -172,16 +156,14 @@ export default function ProductDetail({
             <span className={styles.aromaTitle}>
               Elige tu aroma
               {selectedAroma && (
-                <span className={styles.aromaSelected}>
-                  — {selectedAroma.name}
-                </span>
+                <span className={styles.aromaSelected}>— {selectedAroma.name}</span>
               )}
             </span>
             <div className={styles.aromas}>
               {aromasDeColeccion.map((aroma) => (
                 <button
                   key={aroma.id}
-                  className={`${styles.aromaBtn} ${selectedAromaId === aroma.id ? styles.active : ""}`}
+                  className={`${styles.aromaBtn} ${selectedAromaId === aroma.id ? styles.active : ''}`}
                   onClick={() => setSelectedAromaId(aroma.id)}
                 >
                   {aroma.name}
@@ -197,10 +179,10 @@ export default function ProductDetail({
                 className={styles.select}
                 value={selectedCollection.id}
                 onChange={(e) => {
-                  const col = getCollectionById(e.target.value);
+                  const col = getCollectionById(e.target.value)
                   if (col) {
-                    setSelectedCollection(col);
-                    setSelectedAromaId(col.aromas[0]);
+                    setSelectedCollection(col)
+                    setSelectedAromaId(col.aromas[0])
                   }
                 }}
               >
@@ -250,16 +232,14 @@ export default function ProductDetail({
               </button>
             </div>
             {quantity > 1 && (
-              <span className={styles.qtyTotal}>
-                {formatPrice(product.price * quantity)}
-              </span>
+              <span className={styles.qtyTotal}>{formatPrice(product.price * quantity)}</span>
             )}
           </div>
 
           <div className={styles.cta}>
             <button
               onClick={handleAddToCart}
-              className={`${styles.btnCart} ${added ? styles.btnCartAdded : ""}`}
+              className={`${styles.btnCart} ${added ? styles.btnCartAdded : ''}`}
               disabled={added}
             >
               {added ? (
@@ -272,28 +252,23 @@ export default function ProductDetail({
                     stroke="currentColor"
                     strokeWidth="2.5"
                   >
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   Agregado al carrito
                 </>
               ) : (
-                "Agregar al carrito"
+                'Agregar al carrito'
               )}
             </button>
             <Link href="/carrito" className={styles.btnSecondary}>
               Finalizar tu pedido
             </Link>
             <p className={styles.hint}>
-              Te responderemos en menos de 24 horas con disponibilidad y
-              confirmación del pedido.
+              Te responderemos en menos de 24 horas con disponibilidad y confirmación del pedido.
             </p>
           </div>
         </div>
       </section>
     </>
-  );
+  )
 }
