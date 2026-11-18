@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
     id: 1,
     slug: "vela-corcho",
     name: "Vela Corcho",
-    price: 20000,
+    price: 18000,
     image: imgCorcho,
     timeDuration: "+15 horas",
     description:
@@ -29,7 +29,7 @@ export const PRODUCTS: Product[] = [
     id: 2,
     slug: "vela-vidrio",
     name: "Vela Vidrio",
-    price: 23000,
+    price: 20000,
     image: imgVidrio,
     timeDuration: "+17 horas",
 
@@ -40,7 +40,7 @@ export const PRODUCTS: Product[] = [
     id: 3,
     slug: "vela-bambu",
     name: "Vela Bambú",
-    price: 45000,
+    price: 40000,
     image: imgBambu,
     timeDuration: "+45 horas",
     description:
@@ -60,21 +60,21 @@ export const EMPAQUES: Empaque[] = [
   {
     id: "vela-vidrio",
     name: "Vidrio",
-    price: 23000,
+    price: 20000,
     image: imgVidrio,
     timeDuration: "+17 horas",
   },
   {
     id: "vela-corcho",
     name: "Corcho",
-    price: 20000,
+    price: 18000,
     image: imgCorcho,
     timeDuration: "+15 horas",
   },
   {
     id: "vela-bambu",
     name: "Bambú",
-    price: 45000,
+    price: 40000,
     timeDuration: "+45 horas",
 
     image: imgBambu,
