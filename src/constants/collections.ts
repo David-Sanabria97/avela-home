@@ -2,7 +2,8 @@ import type { StaticImageData } from "next/image";
 // TODO: cambiar por las fotos de src/img/colecciones/<id>.jpg cuando lleguen.
 import ImgSabana from "@/img/PURE.png";
 import ImgCaribe from "@/img/FRESH.png";
-import ImgAmazonia from "@/img/CEDRO.png";
+// Provisional: foto de la vela corcho Açaí (de esta colección) en vez de la vieja de corcho.
+import ImgAmazonia from "@/img/aromas/vela-corcho/acai.jpeg";
 import ImgPaisa from "@/img/RITUAL.png";
 import ImgPacifico from "@/img/ALBA.png";
 import ImgLlanos from "@/img/NOIR.jpeg";
