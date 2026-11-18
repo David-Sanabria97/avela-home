@@ -1,22 +1,20 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import ProductDetail from "@/components/organisms/ProductDetail/ProductDetail";
-import JsonLd from "@/components/atoms/JsonLd/JsonLd";
-import { PRODUCTS } from "@/constants/products";
-import { SITE } from "@/constants/site";
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import ProductDetail from '@/components/organisms/ProductDetail/ProductDetail'
+import JsonLd from '@/components/atoms/JsonLd/JsonLd'
+import ProductReviews from '@/components/organisms/ProductReviews/ProductReviews'
+import { getReviewsByProduct, reviewSchema } from '@/constants/reviews'
+import { PRODUCTS } from '@/constants/products'
+import { SITE } from '@/constants/site'
 
 export function generateStaticParams() {
-  return PRODUCTS.map((p) => ({ slug: p.slug }));
+  return PRODUCTS.map((p) => ({ slug: p.slug }))
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
-  const product = PRODUCTS.find((p) => p.slug === params.slug);
-  if (!product) return {};
-  const title = `${product.name} aromática de soya`;
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const product = PRODUCTS.find((p) => p.slug === params.slug)
+  if (!product) return {}
+  const title = `${product.name} aromática de soya`
   return {
     title,
     description: product.description,
@@ -27,41 +25,48 @@ export function generateMetadata({
       url: `/producto/${product.slug}`,
       images: [{ url: product.image.src, alt: product.name }],
     },
-  };
+  }
 }
 
 export default function ProductPage({
   params,
   searchParams,
 }: {
-  params: { slug: string };
-  searchParams: { coleccion?: string };
+  params: { slug: string }
+  searchParams: { coleccion?: string }
 }) {
-  const product = PRODUCTS.find((p) => p.slug === params.slug);
-  if (!product) notFound();
+  const product = PRODUCTS.find((p) => p.slug === params.slug)
+  if (!product) notFound()
+
+  const reviews = getReviewsByProduct(product.slug)
 
   const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
+    '@context': 'https://schema.org',
+    '@type': 'Product',
     name: `${product.name} — Avela Home`,
     description: product.description,
     image: `${SITE.url}${product.image.src}`,
     sku: product.slug,
-    brand: { "@type": "Brand", name: SITE.name },
-    material: "Cera de soya",
+    brand: { '@type': 'Brand', name: SITE.name },
+    material: 'Cera de soya',
     offers: {
-      "@type": "Offer",
-      priceCurrency: "COP",
+      '@type': 'Offer',
+      priceCurrency: 'COP',
       price: product.price,
-      availability: "https://schema.org/InStock",
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
       url: `${SITE.url}/producto/${product.slug}`,
+      seller: { '@type': 'Organization', name: SITE.name, url: SITE.url },
     },
-  };
+    // Solo aparece cuando hay reseñas reales en src/constants/reviews.ts
+    ...reviewSchema(reviews),
+  }
 
   return (
     <>
       <JsonLd data={productSchema} />
       <ProductDetail product={product} coleccionParam={searchParams.coleccion} />
+      <ProductReviews reviews={reviews} />
     </>
-  );
+  )
 }
