@@ -37,7 +37,7 @@ export const PRODUCTOS_NAVIDAD: ProductoNavidad[] = [
       'Siete velas onduladas de colores, cada una con un deseo en relieve para el año que llega. Se encienden una por noche o todas juntas en la novena.',
     detalles: [
       'Deseos: Familia, Trabajo, Amor, Salud, Paz, Dinero y Éxito',
-      'Velas de 11 cm',
+      'Cada vela mide 11 × 3 × 2,3 cm y pesa unos 49,5 g',
       'Caja de regalo con ventana',
     ],
     images: [
@@ -59,7 +59,7 @@ export const PRODUCTOS_NAVIDAD: ProductoNavidad[] = [
     contenido: 'Caja de 6 velas',
     price: 0,
     description: 'Las figuras del pesebre en velas de 11 cm.',
-    detalles: ['Velas de 11 cm'],
+    detalles: ['Cada vela mide 11 × 3,85 × 2,2 cm (ancho en la estrella) y pesa unos 38 g'],
     images: [],
     visible: false,
   },
