@@ -52,6 +52,16 @@
   line-height: 1.05;
 }
 
+.product {
+  font: 20px/1.4 v.$font-serif;
+  color: v.$text;
+
+  strong {
+    font-weight: 600;
+    color: v.$accent-700;
+  }
+}
+
 .desc {
   font: 16px/1.6 v.$font-body;
   color: v.$text2;

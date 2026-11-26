@@ -11,7 +11,7 @@ export default function ChristmasBanner() {
       <Link href="/navidad" className={styles.post}>
         <Image
           src={TEMPORADA_NAVIDAD.post}
-          alt="Velas de los deseos, caja de 7 velas a $18.000"
+          alt="Caja de regalo de las Velas de los deseos con siete velas de colores: Familia, Trabajo, Amor, Salud, Paz, Dinero y Éxito"
           sizes="(max-width: 768px) 100vw, 480px"
           placeholder="blur"
           className={styles.img}
@@ -22,6 +22,9 @@ export default function ChristmasBanner() {
         <h2 id="navidad-banner" className={styles.title}>
           Velas navideñas
         </h2>
+        <p className={styles.product}>
+          Velas de los deseos · caja de 7 velas · <strong>$18.000</strong>
+        </p>
         <p className={styles.desc}>
           Cajas de regalo hechas a mano para la novena, el amigo secreto y la noche de Navidad. Se
           hacen solo en esta época y por cantidades limitadas.
