@@ -30,27 +30,42 @@ export default function NavidadPage() {
           )
           return (
             <article key={p.id} className={styles.card}>
-              {/* Columnas proporcionales al ancho/alto de cada foto: quedan de la misma altura sin recortarse. */}
-              <div
-                className={styles.images}
-                style={{
-                  gridTemplateColumns: p.images
-                    .map((img) => `minmax(0, ${img.src.width / img.src.height}fr)`)
-                    .join(' '),
-                }}
-              >
-                {p.images.map((img, i) => (
-                  <Image
-                    key={img.alt}
-                    src={img.src}
-                    alt={img.alt}
-                    priority={i === 0}
-                    placeholder="blur"
-                    sizes="(max-width: 768px) 70vw, 420px"
-                    className={styles.img}
-                  />
-                ))}
-              </div>
+              {p.video ? (
+                <video
+                  className={styles.video}
+                  src={p.video.src}
+                  poster={p.video.poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  aria-label={`Video de la caja ${p.name}`}
+                />
+              ) : (
+                /* Columnas proporcionales al ancho/alto de cada foto: quedan de la misma altura sin recortarse. */
+                <div
+                  className={styles.images}
+                  style={{
+                    gridTemplateColumns: p.images
+                      .map((img) => `minmax(0, ${img.src.width / img.src.height}fr)`)
+                      .join(' '),
+                  }}
+                >
+                  {p.images.map((img, i) => (
+                    <Image
+                      key={img.alt}
+                      src={img.src}
+                      alt={img.alt}
+                      priority={i === 0}
+                      placeholder="blur"
+                      sizes="(max-width: 768px) 70vw, 420px"
+                      className={styles.img}
+                    />
+                  ))}
+                </div>
+              )}
               <div className={styles.info}>
                 <span className={styles.kicker}>{p.contenido}</span>
                 <h2 className={styles.name}>{p.name}</h2>

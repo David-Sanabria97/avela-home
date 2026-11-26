@@ -63,6 +63,23 @@
   align-items: start;
 }
 
+.video {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  justify-self: center;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 20px;
+  background: v.$cream2;
+  box-shadow: 0 12px 32px rgba(32, 31, 29, 0.12);
+
+  @include m.md {
+    max-width: 340px;
+  }
+}
+
 .img {
   display: block;
   width: 100%;

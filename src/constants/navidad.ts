@@ -1,7 +1,4 @@
 import type { StaticImageData } from 'next/image'
-import postDeseos from '@/img/navidad/post_velas_deseos.jpg'
-import deseosCerrada from '@/img/navidad/deseos_caja_cerrada.jpg'
-import deseosAbierta from '@/img/navidad/deseos_caja_abierta.jpg'
 
 /**
  * Temporada de Navidad.
@@ -11,8 +8,16 @@ import deseosAbierta from '@/img/navidad/deseos_caja_abierta.jpg'
 export const TEMPORADA_NAVIDAD = {
   activa: true,
   nombre: 'Navidad 2026',
-  /** Imagen tipo post que se muestra en la portada. */
-  post: postDeseos,
+  /** Video tipo post que se muestra en la portada (en /public/videos). */
+  video: {
+    src: '/videos/velas-deseos.mp4',
+    poster: '/videos/velas-deseos-poster.jpg',
+  },
+}
+
+export interface VideoNavidad {
+  src: string
+  poster: string
 }
 
 export interface ProductoNavidad {
@@ -23,6 +28,8 @@ export interface ProductoNavidad {
   description: string
   detalles: string[]
   images: { src: StaticImageData; alt: string }[]
+  /** Si hay video, se muestra en lugar de las fotos. */
+  video?: VideoNavidad
   /** false = no se muestra en la web (falta foto o precio). */
   visible: boolean
 }
@@ -40,16 +47,11 @@ export const PRODUCTOS_NAVIDAD: ProductoNavidad[] = [
       'Cada vela mide 11 × 3 × 2,3 cm y pesa unos 49,5 g',
       'Caja de regalo con ventana',
     ],
-    images: [
-      {
-        src: deseosCerrada,
-        alt: 'Caja de regalo de las Velas de los deseos con siete velas de colores',
-      },
-      {
-        src: deseosAbierta,
-        alt: 'Siete velas onduladas de colores con palabras en relieve dentro de su caja',
-      },
-    ],
+    images: [],
+    video: {
+      src: '/videos/velas-deseos.mp4',
+      poster: '/videos/velas-deseos-poster.jpg',
+    },
     visible: true,
   },
   {
