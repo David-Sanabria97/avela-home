@@ -6,6 +6,7 @@ import styles from "./Navbar.module.scss";
 import Logo from "@/img/logo.png";
 import { useCartStore } from "@/store/cartStore";
 import { buildWhatsAppUrl } from "@/hooks/useWhatsApp";
+import { TEMPORADA_NAVIDAD } from "@/constants/navidad";
 
 const ORDER_URL = buildWhatsAppUrl("¡Hola Avela! Quiero hacer un pedido.");
 
@@ -19,6 +20,13 @@ export default function Navbar() {
       </Link>
 
       <ul className={styles.links}>
+        {TEMPORADA_NAVIDAD.activa && (
+          <li>
+            <Link href="/navidad" className={styles.link}>
+              Navidad
+            </Link>
+          </li>
+        )}
         <li>
           <Link href="/#colecciones" className={styles.link}>
             Colecciones
