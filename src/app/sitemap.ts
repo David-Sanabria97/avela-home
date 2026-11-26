@@ -14,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${SITE.url}/navidad`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     ...COLLECTIONS.map((c) => ({
       url: `${SITE.url}/colecciones/${c.id}`,
       lastModified,

@@ -1,0 +1,124 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.page {
+  @include m.container;
+  padding-block: 48px 64px;
+
+  @include m.md {
+    padding-block: 24px 40px;
+  }
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.badge {
+  @include m.kicker;
+  padding: 6px 12px;
+  border: 1px solid v.$gold;
+  border-radius: 999px;
+  background: v.$gold-pale;
+}
+
+.title {
+  font-family: v.$font-serif;
+  font-size: m.fluid(40, 60);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.subtitle {
+  font: 16px/1.6 v.$font-body;
+  color: v.$text2;
+  max-width: 60ch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+
+  @include m.md {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.images {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  background: v.$cream2;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.kicker {
+  @include m.kicker;
+}
+
+.name {
+  font-family: v.$font-serif;
+  font-size: m.fluid(32, 44);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.price {
+  font: 500 32px v.$font-serif;
+  color: v.$accent-700;
+
+  span {
+    font: 14px v.$font-body;
+    color: v.$text2;
+  }
+}
+
+.desc {
+  font: 16px/1.6 v.$font-body;
+  color: v.$text2;
+}
+
+.details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font: 14px/1.5 v.$font-body;
+  color: v.$text;
+
+  li::before {
+    content: '✦ ';
+    color: v.$gold;
+  }
+}
+
+.cta {
+  @include m.btn-outline(18px);
+  margin-top: 8px;
+}

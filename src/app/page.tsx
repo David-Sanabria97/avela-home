@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/organisms/Hero/Hero";
+import ChristmasBanner from "@/components/organisms/ChristmasBanner/ChristmasBanner";
 import ExperienceBar from "@/components/organisms/ExperienceBar/ExperienceBar";
 import Collections from "@/components/organisms/Collections/Collections";
 import Wholesale from "@/components/organisms/Wholesale/Wholesale";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <ChristmasBanner />
       <ExperienceBar />
       <section id="colecciones" className={styles.collections}>
         <div className={styles.head}>
